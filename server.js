@@ -19,18 +19,19 @@ mongoose
   .then(() => console.log("MongoDB successfully connected"))
   .catch(() => console.log("DataBase connection is failed"));
 
+//! Routes
+app.get("/", (req, res) => {
+  res.render("home", { pageTitle: "Home Page" });
+});
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+app.post("/login", (req, res) => {
+  console.log(req.body);
+  res.json(req.body);
+});
+
 //! Listen
 app.listen(PORT, () => {
   console.log("Server is running on PORT:" + PORT);
 });
-  app.get('/', (req, res)=>{
-    res.render('home', {pageTitle: 'Home Page'}); 
-})
-// const Login = require('/login')
-app.get('/login', (req, res) => {
-  res.render('login')
-})
-app.post('/login', (req, res) => {
-  console.log(req.body)
-  res.json(req.body)
-  })
