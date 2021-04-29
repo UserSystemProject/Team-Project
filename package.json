@@ -1,0 +1,20 @@
+{
+  "name": "team-project",
+  "version": "1.0.0",
+  "description": "### Technologies: Node.js, Express.js, MongoDB #### Deadline: 04.05.2021 - Tuesday",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UserSystemProject/Team-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UserSystemProject/Team-Project/issues"
+  },
+  "homepage": "https://github.com/UserSystemProject/Team-Project#readme"
+}
