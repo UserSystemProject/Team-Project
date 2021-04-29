@@ -4,7 +4,7 @@
   "description": "### Technologies: Node.js, Express.js, MongoDB #### Deadline: 04.05.2021 - Tuesday",
   "main": "server.js",
   "scripts": {
-    "test": "node server",
+    "test": "node server.js",
     "start": "nodemon server.js"
   },
   "repository": {
@@ -21,7 +21,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hbs": "^4.1.2",
-    "mongoose": "^5.12.6",
+    "mongoose": "^5.12.7",
     "nodemon": "^2.0.7"
   }
 }

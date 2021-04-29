@@ -1,19 +1,47 @@
 <h2>
-Enter your credentials to see add your product
+Log In Account
 </h2>
 
-<form action='/login' method='post'>
+<form class="loginImportant" action="/login" method="post">
+Important Information!
+
+We have changed the login process! Account names have been abolished. To log in, you only need your password and the account's email address.
+
+You have forgotten your email address but you still know the account name which had been used for your Tibia account?
+Get your email address here: <a href="www.google.com">Link</a></form>
+
+ {{#if character.successResult}}
+    <div class="alert alert-warning" role="alert">
+    {{character.result}}
+    </div>
+{{/if}} 
+
+<form action='/login' method='POST'>
   <label>
    Email <input type='email' name='email' />
   </label>
   <br><br>
   <label>
-   Username <input type='text' name='name' />
-  </label>
-  <br><br>
-  <label>
     Password <input type='password' name='password' />
   </label>
+  <a></span>
   <br><br>
   <button type="submit">Log In</button>
+  <span class="psw"><a href="resetPassword">Forgot Password?</a>
+
+  <form action="">
+
+
+<p>
+  Facebook Information
+It is currently not possible to create a new  account via Facebook.
+
+However, if you have an account is already connected to Facebook, you can still log in via your Facebook account.
+
+
+</p>
+  </form>
 </form>
+
+
+
