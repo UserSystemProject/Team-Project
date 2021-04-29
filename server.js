@@ -23,14 +23,60 @@ mongoose
 app.listen(PORT, () => {
   console.log("Server is running on PORT:" + PORT);
 });
-  app.get('/', (req, res)=>{
-    res.render('home', {pageTitle: 'Home Page'}); 
-})
-// const Login = require('/login')
-app.get('/login', (req, res) => {
-  res.render('login')
-})
-app.post('/login', (req, res) => {
-  console.log(req.body)
-  res.json(req.body)
-  })
+// Home
+app.get("/", (req, res) => {
+  res.render("home", { pageTitle: "Home Page" });
+});
+
+// Login
+
+// Adding modal
+
+const url = require("url");
+
+//log in to be desplay
+//import my model User log in
+
+const myUser = require("./models/User");
+
+app.get("/login", (req, res) => {
+  //res.render("login");
+  myUser.find((err, info) => {
+    const character = req.query;
+    res.render("product", { info, character });
+  });
+});
+
+app.post("/login", (req, res) => {
+  // console.log("Data is received from user:", req.body);
+  const newUser = new myUser(req.body);
+  console.log(newUser);
+  newUser.save().then(() => {
+    res.redirect(
+      url.format({
+        pathname: "/product",
+        query: {
+          result: "Your Information is Stored Correctly",
+          successResult: true,
+        },
+      })
+    );
+  });
+});
+
+// Reset Password
+
+app.get("/resetPassword", (req, res) => {
+  res.render("resetPassword");
+});
+
+app.post("/resetPassword", (req, res) => {
+  console.log("Data is received from user:", req.body);
+  // res.end(JSON.stringify(req.body));
+});
+
+//404 error
+
+app.get("*", (req, res) => {
+  res.render("404error");
+});
