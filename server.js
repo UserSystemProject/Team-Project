@@ -23,7 +23,7 @@ mongoose
 //! Adding models
 const User = require("./models/User");
 const Product = require("./models/Product");
-// Home
+//! Home
 app.get("/", (req, res) => {
   res.render("home", { pageTitle: "Home Page" });
 });
@@ -37,18 +37,14 @@ app.get("/login", (req, res) => {
 });
 app.post("/login", (req, res) => {
   // we need to use find method here
-  User.find((err, users) => {
-    console.log(users);
-  });
-  res.redirect(
-    url.format({
-      pathname: "/product",
-      query: {
-        result: "Your Information is Stored Correctly",
-        successResult: true,
-      },
-    })
-  );
+  // User.find((err, users) => {
+  //   console.log(users);
+  // });
+  res.redirect("/product");
+});
+//! Product
+app.get("/product" /* product path */, (req, res) => {
+  res.render("product"); /* product file */
 });
 //! register (Create of Crud)
 app.get("/register", (req, res) => {
