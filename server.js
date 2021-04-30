@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 //! Adding models
 const User = require("./models/User");
 const Product = require("./models/Product");
+
 //! Home
 app.get("/", (req, res) => {
   res.render("home", { pageTitle: "Home Page" });
@@ -53,6 +54,7 @@ app.post("/productuser", (req, res) => {
     res.redirect("/productuser");
   });
 });
+
 //! updating manually
 app.get("product/update/:id", (req, res) => {
   const updateProduct = req.params.id;
@@ -64,6 +66,7 @@ app.get("product/update/:id", (req, res) => {
     }
   );
 });
+
 //! Login (Read of cRud)
 app.get("/login", (req, res) => {
   const messages = req.query;
@@ -106,6 +109,7 @@ app.post("/register", (req, res) => {
     res.redirect("/login");
   });
 });
+
 //! 404 error
 app.get("*", (req, res) => {
   res.render("404error");
