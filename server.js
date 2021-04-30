@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 const PORT = 5000;
 const url = require("url");
+
 //! Setting
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
@@ -23,6 +24,7 @@ mongoose
 //! Adding models
 const User = require("./models/User");
 const Product = require("./models/Product");
+const { Router } = require("express");
 //! Home
 app.get("/", (req, res) => {
   res.render("home", { pageTitle: "Home Page" });
@@ -32,7 +34,7 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
   // User.find((err, info) => {
   //   const character = req.query;
-  res.redirect("/product");
+  res.render("login");
   // });
 });
 app.post("/login", (req, res) => {
@@ -42,10 +44,30 @@ app.post("/login", (req, res) => {
   // });
   res.redirect("/product");
 });
+
 //! Product
-app.get("/product" /* product path */, (req, res) => {
-  res.render("product"); /* product file */
+
+// app.get("/product" /* product path */, (req, res) => {
+//   res.render("product"); /* product file */
+// });
+
+app.get("/product", (req, res) => {
+  Product.find((err, product) => {
+    res.render("product", { product });
+  });
 });
+
+app.post("/product", (req, res) => {
+  const newProduct = new Product(req.body);
+  newProduct.save().then(() => {
+    res.redirect("/product");
+  });
+});
+
+// app.post("/product", (req, res) => {
+//   res.render("/update");
+// });
+
 //! register (Create of Crud)
 app.get("/register", (req, res) => {
   res.render("signUpForm");

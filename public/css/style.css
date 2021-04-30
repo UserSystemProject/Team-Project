@@ -1,3 +1,5 @@
+@import "~mdb-ui-kit/css/mdb.min.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -21,4 +23,14 @@
 i {
   margin-left: 10px;
   margin-top: 10px;
+}
+
+/* Product PAge */
+
+.card {
+  margin-left: 10%;
+}
+
+.card-body {
+  background-color: yellowgreen;
 }

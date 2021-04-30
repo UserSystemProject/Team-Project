@@ -1,1 +1,93 @@
-<h1>Product page</h1>
+<h1>Welcome to our Product Page</h1>
+
+
+
+<h2>Update your items as an Admin :</h2>
+{{!-- <form class="d-flex justify-content-start px-5 mx-auto my-4 mr-2" >
+<label>Title</label>
+    <input type="text" class="form-control" name="title">
+    <label>Price</label>
+    <input type="text" class="form-control" name="Price">
+    <label>Discount</label>
+    <input type="text" class="form-control" name="Discount">
+    <br>
+    <button type="submit" class="btn btn-success">
+     Update
+    </button>
+
+    </form> --}}
+
+<form action="/product" method="post">
+<label>Title</label>
+    <input type="text" class="form-control" name="title">
+    <label>Price</label>
+    <input type="text" class="form-control" name="Price">
+    <label>Discount</label>
+    <input type="text" class="form-control" name="Discount">
+    <br>
+    <button type="submit" class="btn btn-success">
+     Update
+    </button>
+
+    
+<div class="d-flex justify-content-start px-5 mx-auto my-4 mr-2" >
+
+
+<div class="card mr-2 " style="width: 18rem">
+  <div class="card-body">
+    <h5  class="card-title"> TItle:   {{title}}</h5>
+      
+    <p class="card-text">
+      Price : 70$
+    </p>
+
+    <h5 class="card-title"> Discount: 5%</h5>
+    <a href="/update" class="btn btn-primary">Update</a>
+  </div>
+</div>
+
+<div class="card mr-2" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">Addidas Jacket</h5>
+    
+    <p class="card-text">
+      Price : 70$
+    </p>
+    <h5 class="card-title"> Discount: 5%</h5>
+    <a href="/update" class="btn btn-primary">Update</a>
+  </div>
+  
+</div>
+
+
+<div class="card mr-2" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title"> Tittle: Nike Jacket</h5>
+      
+    <p class="card-text">
+      Price : 70$
+    </p>
+
+    <h5 class="card-title"> Discount: 5%</h5>
+    <a href="/update" class="btn btn-primary">Update</a>
+  </div>
+</div>
+
+<div class="card mr-2 " style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">Quicksilver Pants</h5>
+    
+    <p class="card-text">
+      Price : 70$
+    </p>
+    <h5 class="card-title"> Discount: 5%</h5>
+    <a href="/update" class="btn btn-primary">Update</a>
+  </div>
+  
+</div>
+
+<div>
+
+</div>
+
+</form>
