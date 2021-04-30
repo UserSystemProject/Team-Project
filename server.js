@@ -48,10 +48,6 @@ app.post("/login", (req, res) => {
 
 //! Product
 
-// app.get("/product" /* product path */, (req, res) => {
-//   res.render("product"); /* product file */
-// });
-
 app.get("/product", (req, res) => {
   Product.find((err, product) => {
     res.render("product", { product });
@@ -65,9 +61,18 @@ app.post("/product", (req, res) => {
   });
 });
 
-// app.post("/product", (req, res) => {
-//   res.render("/update");
-// });
+// updating
+
+app.get("product/update/:id", (req, res) => {
+  const updateProduct = req.params.id;
+  Product.findByIdAndUpdate(
+    updateProduct,
+    { title: "updating" },
+    (err, doc) => {
+      res.redirect("/product");
+    }
+  );
+});
 
 //! register (Create of Crud)
 app.get("/register", (req, res) => {
