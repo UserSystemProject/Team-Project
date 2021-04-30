@@ -54,7 +54,7 @@ main {
   height: calc(100vh - 120px);
   padding: 25px;
 }
-.loginAdvice {
+/* .loginAdvice {
   text-align: center;
 }
 .loginAdvice .arrow {
@@ -88,9 +88,9 @@ footer {
 }
 footer .names {
   margin: 0;
-}
+} */
 /* Product PAge */
-.products {
+/* .products {
   border: 1px solid black;
   margin: 35px auto;
   width: 95%;
@@ -124,10 +124,9 @@ footer .names {
   text-decoration: none;
 }
 
-
 /** LOGIN **/
 
-.loginImportant {
+/* .loginImportant {
   border-radius: 10px;
   font-weight: bold;
   padding: 30px;
@@ -145,9 +144,15 @@ footer .names {
 }
 
 /*widht input fields*/
+<<<<<<< HEAD
 
  input[name="e-mail"],
  input[name="psswrd"] {
+=======
+/* 
+input[type="text"],
+input[type="password"] {
+>>>>>>> 9af3166b20cd684f7de315191b9221b1210896ac
   width: 30%;
   padding: 10px;
   margin: 10px 0px 10px 50px;
@@ -156,56 +161,60 @@ footer .names {
   background: #ffffff;
 }
 /*second layer input*/
+<<<<<<< HEAD
  input[name="e-mail"],
  input[name="psswrd"]{
+=======
+
+/* input[type="text"],
+input[type="password"] {
+>>>>>>> 9af3166b20cd684f7de315191b9221b1210896ac
   background: rgb(6, 146, 29);
   outline-style: none;
   margin-left: 80px;
   width: 65%;
-}
-placeholder {
+} */
 
-  color: black;
-}
-/*margin main text*/
-label,
+/* margin main text */
+/* label,
 h1 {
   margin-left: 80px;
   display: inline;
-}
-/*hr */
-hr {
+} */
+/* hr */
+/* hr {
   border: 1px solid rgb(6, 146, 29);
   margin-bottom: 15px;
   width: 65%;
   margin-left: 80px;
-}
+}  */
 
 /* Adding padding margin sign up class*/
 
-.signup {
-  /* background-image: url("/image.jpg"); */
-  /* background-color: rgb(155, 161, 157); */
+/* .signup {
   border: 1px solid black;
   box-shadow: 10px 5px rgb(6, 146, 29);
   border-radius: 10px;
-  background-size:cover;
+  background-size: cover;
   padding: 50px 30px 10px 50px;
   margin: 80px 80px 160px 80px;
   color: rgb(0, 0, 0);
   width: 40%;
   margin: auto;
   margin-top: 10px;
+<<<<<<< HEAD
   height: 650px;
 }
+=======
+} */
+>>>>>>> 9af3166b20cd684f7de315191b9221b1210896ac
 
-.buttons {
+/* .buttons {
   margin: 80px 80px 50px;
   padding: 5px;
   width: 80px;
   background: #0e60db;
-  color : white;
-  
+  color: white;
 }
 
 .buttons-submit {
@@ -213,9 +222,9 @@ hr {
   margin: 80px 80px 50px;
   padding: 5px;
   width: 150px;
-}
+} */
 
-p {
+/* p {
   margin-left: 80px;
   padding: 30px 0px 30px 0px;
-}
+}  */
