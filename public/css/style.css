@@ -145,8 +145,8 @@ footer .names {
 
 /*widht input fields*/
 
- input[name="email"],
- input[name="password"] {
+ input .Email
+ {
   width: 30%;
   padding: 10px;
   margin: 10px 0px 10px 50px;
@@ -155,8 +155,7 @@ footer .names {
   background: #ffffff;
 }
 /*second layer input*/
- input[name="email"],
- input[name="password"]{
+input .Password{
   background: rgb(6, 146, 29);
   outline-style: none;
   margin-left: 80px;
