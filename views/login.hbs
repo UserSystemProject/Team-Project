@@ -1,3 +1,8 @@
+<form class='loginImportant' action='/login' method='post'>
+  Important Information!
+
+  We have changed the login process! Account names have been abolished. To log in, you only need your password and the
+  account's email address.
 
   You have forgotten your email address but you still know the account name which had been used for your Tibia account?
   Get your email address here:
@@ -12,7 +17,7 @@
   </div>
 {{/if}}
 
-<main>
+
   <form class='signup' action='/login' method='POST'>
     <h1>
       Log In
@@ -27,16 +32,15 @@
         E-Mail
       </b>
     </label>
-    <input type='text' name='email' required />
+    <input class='containers' type='text' name='e-mail' required />
 
     <label for='psswrd'>
       <b>
         Password
       </b>
     </label>
-    <input
+    <input class="container"
       type='password'
-     
       name='psswrd'
       required
     />
@@ -45,7 +49,7 @@
       Submit
     </button>
 
-    <a href='/register' class='button-submit' type='submit'>
+    <a href='/register' class='buttons-submit' type='submit'>
       Not Register yet!
     </a>
     <p>
@@ -59,4 +63,3 @@
       </a>
     </p>
   </form>
-</main>
