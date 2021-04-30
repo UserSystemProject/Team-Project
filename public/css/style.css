@@ -88,10 +88,6 @@ footer {
 footer .names {
   margin: 0;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 4a7ee49aaade5dfe5451f34cb9c62719fa0ad287
 /* Product PAge */
 .products {
   border: 1px solid black;
@@ -104,11 +100,6 @@ footer .names {
   align-items: center;
   flex-wrap: wrap;
 }
-<<<<<<< HEAD
-
-.card-body {
-  background-color: yellowgreen;
-=======
 .products .card {
   width: 230px;
   height: 220px;
@@ -130,5 +121,4 @@ footer .names {
 }
 .products .card a:hover {
   text-decoration: none;
->>>>>>> 4a7ee49aaade5dfe5451f34cb9c62719fa0ad287
 }

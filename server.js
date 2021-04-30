@@ -29,6 +29,19 @@ app.get("/", (req, res) => {
   res.render("home", { pageTitle: "Home Page" });
 });
 
+//! Product
+app.get("/product", (req, res) => {
+  Product.find((err, product) => {
+    res.render("product", { product });
+  });
+});
+
+app.post("/product", (req, res) => {
+  const newProduct = new Product(req.body);
+  newProduct.save().then(() => {
+    res.redirect("/product");
+  });
+});
 //! Login (Read of cRud)
 app.get("/login", (req, res) => {
   res.render("login");
@@ -52,20 +65,6 @@ app.post("/login", (req, res) => {
       }
     }
   );
-});
-
-//! Product
-app.get("/product", (req, res) => {
-  Product.find((err, product) => {
-    res.render("product", { product });
-  });
-});
-
-app.post("/product", (req, res) => {
-  const newProduct = new Product(req.body);
-  newProduct.save().then(() => {
-    res.redirect("/product");
-  });
 });
 
 //! register (Create of Crud)
