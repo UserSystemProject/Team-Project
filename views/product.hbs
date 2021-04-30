@@ -17,13 +17,13 @@
 
     </form> --}}
 
-<form action="/product" method="post">
+<form class="d-flex justify-content-start px-5 mx-auto my-4 mr-2" action="/product" method="post">
 <label>Title</label>
     <input type="text" class="form-control" name="title">
     <label>Price</label>
-    <input type="text" class="form-control" name="Price">
+    <input type="text" class="form-control" name="price">
     <label>Discount</label>
-    <input type="text" class="form-control" name="Discount">
+    <input type="text" class="form-control" name="discount">
     <br>
     <button type="submit" class="btn btn-success">
      Update
@@ -34,62 +34,31 @@
 
 </form>
 
-<div class="d-flex justify-content-start px-5 mx-auto my-4 mr-2" >
+
+<h2>My Daily Products</h2>
 
 
-<div class="card mr-2 " style="width: 18rem">
-  <div class="card-body">
-    <h5  class="card-title"> TItle:   {{title}}</h5>
-      
-    <p class="card-text">
-      Price : 70$
-    </p>
+{{#if product}}
 
-    <h5 class="card-title"> Discount: 5%</h5>
-    <a href="/update" class="btn btn-primary">Update</a>
-  </div>
-</div>
+<div class="d-flex justify-content-start px-5 mx-auto my-4 mr-2">
 
-<div class="card mr-2" style="width: 18rem">
-  <div class="card-body">
-    <h5 class="card-title">Addidas Jacket</h5>
-    
-    <p class="card-text">
-      Price : 70$
-    </p>
-    <h5 class="card-title"> Discount: 5%</h5>
-    <a href="/update" class="btn btn-primary">Update</a>
-  </div>
+
+ {{#each product}}
   
-</div>
-
-
 <div class="card mr-2" style="width: 18rem">
-  <div class="card-body">
-    <h5 class="card-title"> Tittle: Nike Jacket</h5>
-      
-    <p class="card-text">
-      Price : 70$
-    </p>
-
-    <h5 class="card-title"> Discount: 5%</h5>
-    <a href="/update" class="btn btn-primary">Update</a>
-  </div>
+<div class="card-body">
+<h5 class="card-title">{{title}}</h5>
+<p class="card-text">
+ Price : {{price}} $
+</p>
+<h5 class="card-title"> Discount:{{discount}}%</h5>
+<a href="/todo/update/{{_id}}" class="btn btn-primary">Update</a>
+<a  href="/todo/delete/{{_id}}" class="btn btn-warning">Delete</a>
+</div>
+{{/each}}
 </div>
 
-<div class="card mr-2 " style="width: 18rem">
-  <div class="card-body">
-    <h5 class="card-title">Quicksilver Pants</h5>
-    
-    <p class="card-text">
-      Price : 70$
-    </p>
-    <h5 class="card-title"> Discount: 5%</h5>
-    <a href="/update" class="btn btn-primary">Update</a>
-  </div>
-  
+       
+   
 </div>
-
-<div>
-
-</div>
+{{/if}}

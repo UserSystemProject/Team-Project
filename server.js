@@ -25,6 +25,7 @@ mongoose
 const User = require("./models/User");
 const Product = require("./models/Product");
 const { Router } = require("express");
+
 //! Home
 app.get("/", (req, res) => {
   res.render("home", { pageTitle: "Home Page" });
