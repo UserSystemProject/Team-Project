@@ -121,7 +121,7 @@ footer .names {
 }
 .products .card a:hover {
   text-decoration: none;
-} */
+}
 
 /** LOGIN **/
 
@@ -143,8 +143,8 @@ footer .names {
 }
 
 /*widht input fields*/
-
-/* input[type="text"],
+/* 
+input[type="text"],
 input[type="password"] {
   width: 30%;
   padding: 10px;
@@ -154,36 +154,32 @@ input[type="password"] {
   background: #ffffff;
 }
 /*second layer input*/
-/*
-input[type="text"],
+
+/* input[type="text"],
 input[type="password"] {
   background: rgb(6, 146, 29);
   outline-style: none;
   margin-left: 80px;
   width: 65%;
-}
-placeholder {
-  color: black;
 } */
-/*margin main text*/
+
+/* margin main text */
 /* label,
 h1 {
   margin-left: 80px;
   display: inline;
 } */
-/*hr */
+/* hr */
 /* hr {
   border: 1px solid rgb(6, 146, 29);
   margin-bottom: 15px;
   width: 65%;
   margin-left: 80px;
-} */
+}  */
 
 /* Adding padding margin sign up class*/
 
 /* .signup {
-   background-image: url("/image.jpg"); 
-   background-color: rgb(155, 161, 157); 
   border: 1px solid black;
   box-shadow: 10px 5px rgb(6, 146, 29);
   border-radius: 10px;
@@ -194,9 +190,9 @@ h1 {
   width: 40%;
   margin: auto;
   margin-top: 10px;
-}
+} */
 
-.buttons {
+/* .buttons {
   margin: 80px 80px 50px;
   padding: 5px;
   width: 80px;
@@ -209,10 +205,9 @@ h1 {
   margin: 80px 80px 50px;
   padding: 5px;
   width: 150px;
-}
+} */
 
-p {
+/* p {
   margin-left: 80px;
   padding: 30px 0px 30px 0px;
-} 
-  */
+}  */

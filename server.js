@@ -46,7 +46,7 @@ app.post("/login", (req, res) => {
   res.redirect("/product");
 });
 
-//! Product
+//! Product user
 
 app.get("/product", (req, res) => {
   Product.find((err, product) => {
