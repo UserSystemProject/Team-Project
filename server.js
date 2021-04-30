@@ -80,7 +80,7 @@ app.post("/login", (req, res) => {
   User.findOne(
     { email: req.body.email, password: req.body.password },
     (err, user) => {
-      console.log(user);
+      // console.log(user);
       if (user == null) {
         res.redirect(
           url.format({

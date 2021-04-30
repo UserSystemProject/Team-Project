@@ -51,10 +51,11 @@ nav .user {
 }
 main {
   width: 100%;
-  height: calc(100vh - 120px);
+  min-height: calc(100vh - 125px);
+  height: auto;
   padding: 25px;
 }
- .loginAdvice {
+.loginAdvice {
   text-align: center;
 }
 .loginAdvice .arrow {
@@ -84,13 +85,13 @@ footer {
   align-items: center;
   padding: 0 10px;
   background: grey;
-
 }
 footer .names {
   margin: 0;
-} */
+}
+
 /* Product PAge */
- .products {
+.products {
   border: 1px solid black;
   margin: 35px auto;
   width: 95%;
@@ -124,7 +125,7 @@ footer .names {
   text-decoration: none;
 }
 
-/** LOGIN **/
+/* login */
 
 .loginImportant {
   border-radius: 10px;
@@ -143,10 +144,9 @@ footer .names {
   }
 }
 
-/*widht input fields*/
+/*width input fields*/
 
- input .Email
- {
+input .Email {
   width: 30%;
   padding: 10px;
   margin: 10px 0px 10px 50px;
@@ -155,31 +155,31 @@ footer .names {
   background: #ffffff;
 }
 /*second layer input*/
-input .Password{
+input .Password {
   background: rgb(6, 146, 29);
   outline-style: none;
   margin-left: 80px;
   width: 65%;
-} 
+}
 
 /* margin main text */
- label,
-h1 {
+label,
+.loginHead {
   margin-left: 80px;
   display: inline;
 }
 /* hr */
- hr {
+hr {
   border: 1px solid rgb(6, 146, 29);
   margin-bottom: 15px;
   width: 65%;
   margin-left: 80px;
-}  */
+}
 
 /* Adding padding margin sign up class*/
 
-.signup {
-  border: 1px solid black;
+#signUp {
+  border: 8px solid black;
   box-shadow: 10px 5px rgb(6, 146, 29);
   border-radius: 10px;
   background-size: cover;
@@ -192,7 +192,7 @@ h1 {
   height: 650px;
 }
 
- .buttons {
+.buttons {
   margin: 80px 80px 50px;
   padding: 5px;
   width: 80px;
@@ -205,9 +205,9 @@ h1 {
   margin: 80px 80px 50px;
   padding: 5px;
   width: 150px;
-} 
+}
 
- p {
+p {
   margin-left: 80px;
   padding: 30px 0px 30px 0px;
-}  
+}
