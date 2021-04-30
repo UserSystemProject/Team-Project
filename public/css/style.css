@@ -145,7 +145,7 @@ footer .names {
 
 /*widht input fields*/
 
- input .Email
+.input
  {
   width: 30%;
   padding: 10px;
@@ -155,7 +155,7 @@ footer .names {
   background: #ffffff;
 }
 /*second layer input*/
-input .Password{
+.input{
   background: rgb(6, 146, 29);
   outline-style: none;
   margin-left: 80px;
@@ -178,7 +178,7 @@ h1 {
 
 /* Adding padding margin sign up class*/
 
-.signup {
+#signup {
   border: 1px solid black;
   box-shadow: 10px 5px rgb(6, 146, 29);
   border-radius: 10px;
