@@ -74,7 +74,8 @@ app.get("product/update/:id", (req, res) => {
 });
 //! Login (Read of cRud)
 app.get("/login", (req, res) => {
-  res.render("login");
+  const messages = req.query;
+  res.render("login", { messages });
 });
 app.post("/login", (req, res) => {
   User.findOne(
@@ -86,8 +87,8 @@ app.post("/login", (req, res) => {
           url.format({
             pathname: "/login",
             query: {
-              message: "E-mail or Password is wrong, please check it!",
-              falseEntered: false,
+              failMessage: "E-mail or Password is wrong, please check it!",
+              falseEntered: true,
             },
           })
         );

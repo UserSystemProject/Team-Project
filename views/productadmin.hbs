@@ -1,1 +1,49 @@
 <h1>Hello Admin!</h1>
+<h2>Update Employees:</h2>
+<form action="/productuser" method="POST" class="form mb-4">
+    <label>Title</label>
+    <input type="text" class="form-control" name="title">
+    <label>Price</label>
+    <input type="number" class="form-control" name="price">
+    <label>Discount</label>
+    <input type="text" class="form-control" name="discount">
+    <label>Quantity</label>
+    <input type="number" class="form-control" name="quantity">
+    <br>
+    <button type="submit" class="btn btn-success">
+        Add New Product
+    </button>
+</form>
+
+{{!-- Murat Cards --}}
+{{!-- <div class="products">
+    {{#each product}}
+    <div class="card">
+        <h5>Title: {{title}}</h5>
+        <p>Price: {{price}}</p>
+        <p>Discount: {{discount}}</p>
+        <p>Quantity: {{quantity}}</p>
+        <button class="btn btn-success"><a href="/product/update">Update</a></button>
+    </div>
+    {{/each}}
+</div> --}}
+
+{{!-- Nico Card --}}
+<h2>My Daily Products</h2>
+{{#if product}}
+<div class="d-flex justify-content-start px-5 mx-auto my-4 mr-2">
+    {{#each product}}
+    <div class="card mr-2" style="width: 18rem">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">
+                Price : {{price}} $
+            </p>
+            <h5 class="card-title"> Discount:{{discount}}%</h5>
+            <a href="/todo/update/{{_id}}" class="btn btn-primary">Update</a>
+            <a href="/todo/delete/{{_id}}" class="btn btn-warning">Delete</a>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}

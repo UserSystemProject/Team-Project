@@ -11,15 +11,15 @@
   </a>
 </form>
 
-{{#if character.successResult}}
-  <div class='alert alert-warning' role='alert'>
-    {{character.result}}
+{{#if messages.falseEntered}}
+  <div class='alert alert-warning text-center  mt-3 mb-3' role='alert'>
+    <h4 class="font-weight-bolder m-0">{{messages.failMessage}}</h4>
   </div>
 {{/if}}
 
 
-  <form id='signUp' action='/login' method='POST'>
-    <h1 class="loginHead">
+  <form id='signup' action='/login' method='POST'>
+    <h1>
       Log In
     </h1>
     <p>
@@ -31,14 +31,15 @@
         E-Mail
       </b>
     </label>
-    <input class='Email' type='text' name='email' required />
+    <input class='input' type='text' name='email' required />
 
     <label for='psswrd'>
       <b>
         Password
       </b>
     </label>
-    <input class="Password"
+    <input 
+    class="input"
       type='password'
       name='password'
       required
@@ -50,7 +51,7 @@
     <a href='/register' class='buttons-submit' type='submit'>
       Not Register yet!
     </a>
-    <p>
+    <p class="mt-3">
       By cliking the Submit Button you agree to
       <a href='#'>
         Terms & Conditions

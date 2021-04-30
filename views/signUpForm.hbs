@@ -10,17 +10,17 @@
    
     <div class="col-md-6 ">
       <label for="inputEmail4" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" name="email" />
+      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="johndoe@mail.com"  required/>
     </div>
 
     <div class="col-md-6">
       <label for="inputPassword4" class="form-label">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" name="password" />
+      <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="******" minlength="6" required/>
     </div>
 
     <div class="col-6">
       <label for="inputName" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="" />
+      <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" />
     </div>
 
     <div class="col-md-6">
@@ -42,7 +42,7 @@
 
     <div class="col-md-12 mt-3">
        <label for="inputRole" class="form-label">Role</label>
-      <select class="form-select" aria-label="Default select example" name="role">
+      <select class="form-select" aria-label="Default select example" name="role" required>
         <option selected>Choose your Role</option>
         <option value="administrator">administrator</option>
         <option value="employee">employee</option>
@@ -50,7 +50,7 @@
     </div>
 
    
-      <div class="col-sm-12 mt-2">
+      <div class="col-sm-12 mt-2 mb-4">
          <button style="width: 190px;" type="submit" class="btn btn-primary">Sign in</button>
         </div>
 
