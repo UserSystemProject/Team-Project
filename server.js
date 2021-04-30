@@ -4,22 +4,14 @@ require("dotenv").config();
 const PORT = 5000;
 const url = require("url");
 
+// connectig mongoose
+const connectDB = require("./Config/db");
+connectDB();
+
 //! Setting
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
-
-//! Database connection
-const mongoose = require("mongoose");
-const dataBaseName = process.env.dataBaseHiddenName;
-const dataBaseLink = process.env.dataBaseHiddenLink + dataBaseName;
-mongoose
-  .connect(dataBaseLink, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(() => console.log("DataBase connection is failed"));
 
 //! Adding models
 const User = require("./models/User");
