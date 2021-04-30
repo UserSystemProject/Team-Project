@@ -61,7 +61,7 @@ app.post("/product", (req, res) => {
   });
 });
 
-// updating
+// updating manually
 
 app.get("product/update/:id", (req, res) => {
   const updateProduct = req.params.id;

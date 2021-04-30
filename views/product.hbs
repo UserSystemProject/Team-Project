@@ -3,36 +3,40 @@
 
 
 <h2>Update your items as an Admin :</h2>
-{{!-- <form class="d-flex justify-content-start px-5 mx-auto my-4 mr-2" >
-<label>Title</label>
+
+
+<form action="/product" method="POST" class="form">
+    <label>Title</label>
     <input type="text" class="form-control" name="title">
     <label>Price</label>
-    <input type="text" class="form-control" name="Price">
-    <label>Discount</label>
-    <input type="text" class="form-control" name="Discount">
-    <br>
-    <button type="submit" class="btn btn-success">
-     Update
-    </button>
-
-    </form> --}}
-
-<form class="d-flex justify-content-start px-5 mx-auto my-4 mr-2" action="/product" method="post">
-<label>Title</label>
-    <input type="text" class="form-control" name="title">
-    <label>Price</label>
-    <input type="text" class="form-control" name="price">
+    <input type="number" class="form-control" name="price">
     <label>Discount</label>
     <input type="text" class="form-control" name="discount">
+    <label>Quantity</label>
+    <input type="number" class="form-control" name="quantity">
     <br>
     <button type="submit" class="btn btn-success">
-     Update
+     Add New Product
     </button>
+</form>
+
+{{!-- Murat Cards --}}
+{{!-- <div class="products">
+{{#each product}}
+    <div class="card">
+    <h5>Title: {{title}}</h5>
+    <p>Price: {{price}}</p>
+    <p>Discount: {{discount}}</p>
+    <p>Quantity: {{quantity}}</p>
+    <button class="btn btn-success"><a href="/product/update">Update</a></button>
+    </div>
+{{/each}} 
+</div> --}}
 
     
 
 
-</form>
+{{!-- Nico Card --}}
 
 
 <h2>My Daily Products</h2>
