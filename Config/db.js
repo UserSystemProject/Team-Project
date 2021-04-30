@@ -1,9 +1,11 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
+const dataBaseName = process.env.dataBaseHiddenName;
+const dataBaseLink = process.env.dataBaseHiddenLink + dataBaseName;
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.dataBaseHiddenLink, {
+    await mongoose.connect(dataBaseLink, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
