@@ -54,7 +54,7 @@ main {
   height: calc(100vh - 120px);
   padding: 25px;
 }
-.loginAdvice {
+/* .loginAdvice {
   text-align: center;
 }
 .loginAdvice .arrow {
@@ -87,9 +87,9 @@ footer {
 }
 footer .names {
   margin: 0;
-}
+} */
 /* Product PAge */
-.products {
+/* .products {
   border: 1px solid black;
   margin: 35px auto;
   width: 95%;
