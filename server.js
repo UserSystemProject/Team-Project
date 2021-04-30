@@ -43,7 +43,7 @@ app.get("/login", (req, res) => {
   //res.render("login");
   myUser.find((err, info) => {
     const character = req.query;
-    res.render("product", { info, character });
+    res.render("login", { info, character });
   });
 });
 

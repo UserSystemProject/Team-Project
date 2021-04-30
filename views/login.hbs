@@ -1,6 +1,13 @@
 <h2>
 Log In Account
 </h2>
+{{!-- 
+ {{#if character.successResult}}
+    <div class="alert alert-warning" role="alert">
+    {{character.result}}
+    </div>
+{{/if}}  --}}
+
 
 <form class="loginImportant" action="/login" method="post">
 Important Information!
@@ -10,11 +17,6 @@ We have changed the login process! Account names have been abolished. To log in,
 You have forgotten your email address but you still know the account name which had been used for your Tibia account?
 Get your email address here: <a href="www.google.com">Link</a></form>
 
- {{#if character.successResult}}
-    <div class="alert alert-warning" role="alert">
-    {{character.result}}
-    </div>
-{{/if}} 
 
 <form action='/login' method='post'>
   <label>
