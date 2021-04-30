@@ -30,16 +30,17 @@ app.get("/", (req, res) => {
 });
 //! product admin
 // r
-app.get("/productadmin", (req, res) => {
+app.get("/login/productadmin", (req, res) => {
+  const userName = req.query.userName;
   Product.find((err, product) => {
     User.find((err, user) => {
-      console.log(user, product);
-      res.render("productadmin", { products: product, users: user });
+      // console.log(user, product);
+      res.render("productadmin", { products: product, users: user, userName });
     });
   });
 });
 // c
-app.post("/productadmin", (req, res) => {
+app.post("/login/productadmin", (req, res) => {
   const newUser = new User(req.body);
   newUser.save().then(() => {
     res.redirect("/productadmin");
@@ -47,27 +48,30 @@ app.post("/productadmin", (req, res) => {
 });
 //! Product User
 // r
-app.get("/productuser", (req, res) => {
+app.get("/login/productuser", (req, res) => {
+  console.log(req.query.userName);
+  const userName = req.query.userName;
   Product.find((err, product) => {
     User.find((err, user) => {
-      res.render("productuser", { product, user });
+      res.render("productuser", { product, user, userName });
     });
   });
 });
 // c
-app.post("/productuser", (req, res) => {
+app.post("/login/productuser", (req, res) => {
   const newProduct = new Product(req.body);
   newProduct.save().then(() => {
     res.redirect("/productuser");
   });
 });
 //! updating manually
-app.get("product/update/:id", (req, res) => {
+app.get("/login/product/update/:id", (req, res) => {
   const updateProduct = req.params.id;
   Product.findByIdAndUpdate(
     updateProduct,
     { title: "updating" },
     (err, doc) => {
+      console.log("Product updated:", doc);
       res.redirect("/product");
     }
   );
@@ -94,9 +98,21 @@ app.post("/login", (req, res) => {
         );
       } else if (!Object.keys(user) == 0) {
         if (user.role == "administrator") {
-          res.redirect("/productadmin");
+          console.log(user.name);
+          res.redirect(
+            url.format({
+              pathname: "/login/productadmin",
+              query: { userName: user.name },
+            })
+          );
         } else {
-          res.redirect("/productuser");
+          console.log(user.name);
+          res.redirect(
+            url.format({
+              pathname: "/login/productuser",
+              query: { userName: user.name },
+            })
+          );
         }
       }
     }
