@@ -1,1 +1,32 @@
-<h1>Product page</h1>
+<h1>Welcome to our Product Page</h1>
+
+
+
+<h2>Update your items as an Admin :</h2>
+
+
+<form action="/product" method="POST" class="form">
+    <label>Title</label>
+    <input type="text" class="form-control" name="title">
+    <label>Price</label>
+    <input type="number" class="form-control" name="price">
+    <label>Discount</label>
+    <input type="text" class="form-control" name="discount">
+    <label>Quantity</label>
+    <input type="number" class="form-control" name="quantity">
+    <br>
+    <button type="submit" class="btn btn-success">
+     Add New Product
+    </button>
+</form>
+<div class="products">
+{{#each product}}
+    <div class="card">
+    <h5>Title: {{title}}</h5>
+    <p>Price: {{price}}</p>
+    <p>Discount: {{discount}}</p>
+    <p>Quantity: {{quantity}}</p>
+    <button class="btn btn-success"><a href="/product/update">Update</a></button>
+    </div>
+{{/each}} 
+</div>

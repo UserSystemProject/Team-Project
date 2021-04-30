@@ -1,3 +1,5 @@
+@import "~mdb-ui-kit/css/mdb.min.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -85,4 +87,38 @@ footer {
 }
 footer .names {
   margin: 0;
+}
+/* Product PAge */
+.products {
+  border: 1px solid black;
+  margin: 35px auto;
+  width: 95%;
+  height: auto;
+  padding: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.products .card {
+  width: 230px;
+  height: 220px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px grey;
+  border-radius: 7px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+}
+.products .card a {
+  color: white;
+}
+.products .card button:hover a {
+  color: yellow !important;
+}
+.products .card a:hover {
+  text-decoration: none;
 }

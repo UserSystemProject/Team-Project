@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 const PORT = 5000;
 const url = require("url");
+
 //! Setting
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
@@ -30,7 +31,6 @@ app.get("/", (req, res) => {
 
 //! Login (Read of cRud)
 app.get("/login", (req, res) => {
-  const userInfo = req.query;
   res.render("login");
 });
 app.post("/login", (req, res) => {
@@ -53,10 +53,21 @@ app.post("/login", (req, res) => {
     }
   );
 });
+
 //! Product
-app.get("/product" /* product path */, (req, res) => {
-  res.render("product"); /* product file */
+app.get("/product", (req, res) => {
+  Product.find((err, product) => {
+    res.render("product", { product });
+  });
 });
+
+app.post("/product", (req, res) => {
+  const newProduct = new Product(req.body);
+  newProduct.save().then(() => {
+    res.redirect("/product");
+  });
+});
+
 //! register (Create of Crud)
 app.get("/register", (req, res) => {
   res.render("signUpForm");
