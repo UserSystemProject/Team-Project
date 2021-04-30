@@ -4,7 +4,7 @@
   "description": "### Technologies: Node.js, Express.js, MongoDB #### Deadline: 04.05.2021 - Tuesday",
   "main": "server.js",
   "scripts": {
-    "test": "node server",
+    "test": "node server.js",
     "start": "nodemon server.js"
   },
   "repository": {

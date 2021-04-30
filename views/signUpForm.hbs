@@ -17,51 +17,40 @@
         <br>
       
 
-        <form   action="/" method="POST"     class="row g-3"    >
+        <form   ction="/register" method="POST"     class="row g-3"    >
             <div class="col-md-6 "    >
               <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" />
+              <input type="email" class="form-control" id="inputEmail4" name="email" />
             </div>
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label">Password</label>
-              <input type="password" class="form-control" id="inputPassword4" />
+              <input type="password" class="form-control" id="inputPassword4" name="password"/>
             </div>
             <div class="col-6">
               <label for="inputName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="Name" placeholder="" />
+              <input type="text" class="form-control" id="name" name="name" placeholder="" />
             </div>
-      
             <div class="col-md-6">
               <label for="inputCountry" class="form-label">Country</label>
-              <input type="text" class="form-control" id="inputCountry" />
+              <input type="text" class="form-control" id="inputCountry" name="country" />
             </div>
             <div class="col-md-6">
               <label for="inputAdress" class="form-label">Adress</label>
-              <input type="text" class="form-control" id="inputAdress" />
+              <input type="text" class="form-control" id="inputAdress" name="address" />
             </div>
-      
-            <div class="col-md-2">
-              <label for="inputZip" class="form-label">Zip</label>
-              <input type="text" class="form-control" id="inputZip" />
-            </div>
-      
             <div class="col-md-12 ">
               <label for="inputSalary" class="form-label">Salary</label>
-              <input type="text" class="form-control" id="inputSalary" />
+              <input type="number" class="form-control" id="inputSalary" name="salary" />
        
             </div>
-            <label for="inputRole" class="form-label">Role</label>
-            <div class="col-md-12 ">
-              <select class="form-select" aria-label="Default select example">
+<label for="inputRole" class="form-label">Role</label>
+<div class="col-md-12 ">
+<select class="form-select" aria-label="Default select example" name="role">
                 <option selected>Choose your Role</option>
                 <option value="administrator">administrator</option>
                 <option value="employee">employee</option>
-                           </select>
-            </div>
-            
-         
-
-        
+</select>
+</div>
             </div>
             <div class="col-12" >
               <button type="submit" class="btn btn-primary">Sign in</button>
