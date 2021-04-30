@@ -1,5 +1,5 @@
 <h2>
-Log In Account
+  Log In Account
 </h2>
 {{!-- 
  {{#if character.successResult}}
@@ -10,40 +10,35 @@ Log In Account
 
 
 <form class="loginImportant" action="/login" method="post">
-Important Information!
+  Important Information!
 
-We have changed the login process! Account names have been abolished. To log in, you only need your password and the account's email address.
+  We have changed the login process! Account names have been abolished. To log in, you only need your password and the
+  account's email address.
 
-You have forgotten your email address but you still know the account name which had been used for your Website account?
-Get your email address here: <a href="www.google.com">Link</a></form>
+  You have forgotten your email address but you still know the account name which had been used for your Tibia account?
+  Get your email address here: <a href="www.google.com">Link</a></form>
 
+{{#if userInfo.falseEntered}}
+<div class="alert alert-warning text-center" role="alert">
+  {{userInfo.message}}
+</div>
+{{/if}}
 
 <form action='/login' method='POST'>
   <label>
-   Email <input type='email' name='email' />
+    Email <input type='email' name='email' />
   </label>
   <br><br>
   <label>
     Password <input type='password' name='password' />
   </label>
   <a></span>
-  <br><br>
-  <button type="submit">Log In</button>
-  <span class="psw"><a href="resetPassword">Forgot Password?</a>
-
-  <form action="">
-
-
-<p>
-  Facebook Information
-It is currently not possible to create a new  account via Facebook.
-
-However, if you have an account is already connected to Facebook, you can still log in via your Facebook account.
-
-
-</p>
-  </form>
-</form>
-
-
-
+    <br><br>
+    <button type="submit">Log In</button>
+    </form>
+        <p>
+          Facebook Information
+          It is currently not possible to create a new account via Facebook.
+          However, if you have an account is already connected to Facebook, you can still log in via your Facebook
+          account.
+        </p>
