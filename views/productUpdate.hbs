@@ -1,0 +1,16 @@
+<h2>Update Products:</h2>
+<form action="/login/productuser/update/{{update.id}}?_method=PUT" method="POST" class="form mb-4">
+<input type="hidden" name="_method" value="PUT">
+    <label>Product Title</label>
+    <input type="text" class="form-control" name="title" value={{update.title}}>
+    <label>Price</label>
+    <input type="number" class="form-control" name="price" value={{update.price}}>
+    <label>Discount</label>
+    <input type="text" class="form-control" name="discount" value={{update.discount}}>
+    <label>Quantity</label>
+    <input type="number" class="form-control" name="quantity" value={{update.quantity}}>
+    <br>
+    <button type="submit" class="btn btn-success">
+        Update
+    </button>
+</form>

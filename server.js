@@ -2,12 +2,10 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const PORT = 5000;
-const url = require("url");
 
-// connectig mongoose
+//! Mongoose Connection
 const connectDB = require("./Config/db");
 connectDB();
-
 //! Setting
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
@@ -17,105 +15,22 @@ app.use(express.urlencoded({ extended: false }));
 const User = require("./models/User");
 const Product = require("./models/Product");
 
-//! Home
-app.get("/", (req, res) => {
-  res.render("home", { pageTitle: "Home Page" });
-});
-//! product admin
-// r
-app.get("/productadmin", (req, res) => {
-  Product.find((err, product) => {
-    User.find((err, user) => {
-      console.log(user, product);
-      res.render("productadmin", { products: product, users: user });
-    });
-  });
-});
-// c
-app.post("/productadmin", (req, res) => {
-  const newUser = new User(req.body);
-  newUser.save().then(() => {
-    res.redirect("/productadmin");
-  });
-});
-//! Product User
-// r
-app.get("/productuser", (req, res) => {
-  Product.find((err, product) => {
-    User.find((err, user) => {
-      res.render("productuser", { product, user });
-    });
-  });
-});
-// c
-app.post("/productuser", (req, res) => {
-  const newProduct = new Product(req.body);
-  newProduct.save().then(() => {
-    res.redirect("/productuser");
-  });
-});
+//! Routes
+const indexRouter = require("./routes/indexRouter");
+const signUpRouter = require("./routes/SingUpRouter");
+const loginRouter = require("./routes/loginRouter");
 
-//! updating manually
-app.get("productuser/update/:id", (req, res) => {
-  const updateProduct = req.params.id;
-  Product.findByIdAndUpdate(
-    updateProduct,
-    { title: "updating" },
-    (err, doc) => {
-      console.log("updated", doc);
-      res.redirect("/productuser");
-    }
-  );
-});
+//? Home
+app.use("/", indexRouter);
+//? Register
+app.use("/register", signUpRouter);
+//? Login
+app.use("/login", loginRouter);
 
-//! Login (Read of cRud)
-app.get("/login", (req, res) => {
-  const messages = req.query;
-  res.render("login", { messages });
+//! 404 error
+app.get("*", (req, res) => {
+  res.render("404error");
 });
-app.post("/login", (req, res) => {
-  User.findOne(
-    { email: req.body.email, password: req.body.password },
-    (err, user) => {
-      // console.log(user);
-      if (user == null) {
-        res.redirect(
-          url.format({
-            pathname: "/login",
-            query: {
-              failMessage: "E-mail or Password is wrong, please check it!",
-              falseEntered: true,
-            },
-          })
-        );
-      } else if (!Object.keys(user) == 0) {
-        if (user.role == "administrator") {
-          res.redirect("/productadmin");
-        } else {
-          res.redirect("/productuser");
-        }
-      }
-    }
-  );
-});
-
-//! register (Create of Crud)
-app.get("/register", (req, res) => {
-  res.render("signUpForm");
-});
-app.post("/register", (req, res) => {
-  const newUser = new User(req.body);
-  console.log(newUser);
-  newUser.save(() => {
-    res.redirect("/login");
-  });
-});
-
-// 404 error
-//app.get("*", (req, res) => {
-// res.render("404error");
-// });
-
 //! Listen
 app.listen(PORT, () => {
   console.log("Server is running on PORT:" + PORT);

@@ -1,8 +1,7 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
+const indexController = require("../controllers/indexController");
 
-router.get('/', (req, res) => {
-  // rendering: display template engine files
-  res.render('home', {
-  })
-})
+router.get("/", indexController.homePage);
+
+module.exports = router;
