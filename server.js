@@ -3,19 +3,19 @@ const app = express();
 require("dotenv").config();
 const PORT = 5000;
 const url = require("url");
-
-// connectig mongoose
+//! Mongoose Connection
 const connectDB = require("./Config/db");
 connectDB();
-
 //! Setting
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
-
 //! Adding models
 const User = require("./models/User");
 const Product = require("./models/Product");
+
+//! Routes
+
 //! Home
 app.get("/", (req, res) => {
   res.render("home", { pageTitle: "Home Page" });
@@ -36,6 +36,18 @@ app.post("/login/productadmin", (req, res) => {
   const newUser = new User(req.body);
   newUser.save().then(() => {
     res.redirect("/productadmin");
+  });
+});
+// d
+app.get("/users/delete/:id", (req, res) => {
+  const deleteUserId = req.params.id;
+  User.findByIdAndDelete(deleteUserId, (err, doc) => {
+    console.log("User deleted:", doc);
+    res.redirect(
+      url.format({
+        pathname: "/login/productadmin",
+      })
+    );
   });
 });
 //! Product User

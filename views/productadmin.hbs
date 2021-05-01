@@ -16,34 +16,57 @@
 </form>
 
 {{!-- Murat Cards --}}
-{{!-- <div class="products">
-    {{#each product}}
-    <div class="card">
-        <h5>Title: {{title}}</h5>
-        <p>Price: {{price}}</p>
-        <p>Discount: {{discount}}</p>
-        <p>Quantity: {{quantity}}</p>
-        <button class="btn btn-success"><a href="/product/update">Update</a></button>
-    </div>
-    {{/each}}
-</div> --}}
 
-{{!-- Nico Card --}}
-<h2>My Daily Products</h2>
-{{#if product}}
-<div class="d-flex justify-content-start px-5 mx-auto my-4 mr-2">
-    {{#each product}}
-    <div class="card mr-2" style="width: 18rem">
-        <div class="card-body">
-            <h5 class="card-title">{{title}}</h5>
-            <p class="card-text">
-                Price : {{price}} $
-            </p>
-            <h5 class="card-title"> Discount:{{discount}}%</h5>
-            <a href="/todo/update/{{_id}}" class="btn btn-primary">Update</a>
-            <a href="/todo/delete/{{_id}}" class="btn btn-warning">Delete</a>
-        </div>
-        {{/each}}
-    </div>
+<div class="productAdminDiv">
+<div class="border">
+  <div class="productList">
+   <h2>My User List</h2>
+   <div >
+ {{#each products}}
+   <div class="productItem">
+   <h4>Title: {{title}}</h4>
+   <p>Price {{price}} $</p>
+   <p>Discount: {{discount}} %</p>
+   <p>Quantity: {{quantity}}</p>
+   </div> 
+   {{/each}}
+   </div>
+  
+  </div>
 </div>
-{{/if}}
+<div class="border">
+    <div class="userList">
+        <h2>My User List</h2>
+        {{#if users}}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>Country</th>
+                <th>Address</th>
+                <th>Salary</th>
+                <th>Role</th>
+                <th>Delete/Update</th>
+            </tr>
+            {{#each users}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{country}}</td>
+                <td>{{address}}</td>
+                <td>{{salary}}</td>
+                <td>{{role}}</td>
+                <td><button><a href="/users/delete/{{_id}}">Delete</a></button></td>
+            </tr>
+            {{/each}}
+        </table>
+        {{/if}}
+    </div> 
+</div>
+
+     
+    </div>
+
+    
+
+</div>

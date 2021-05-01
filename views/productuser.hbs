@@ -16,25 +16,12 @@
     </button>
 </form>
 
-{{!-- Murat Cards --}}
-{{!-- <div class="products">
-    {{#each product}}
-    <div class="card">
-        <h5>Title: {{title}}</h5>
-        <p>Price: {{price}}</p>
-        <p>Discount: {{discount}}</p>
-        <p>Quantity: {{quantity}}</p>
-        <button class="btn btn-success"><a href="/product/update">Update</a></button>
-    </div>
-    {{/each}}
-</div> --}}
-
 {{!-- Nico Card --}}
 <h2>My Daily Products</h2>
 {{#if product}}
 <div class="d-flex justify-content-start px-5 mx-auto my-4 mr-2">
     {{#each product}}
-    <div class="card mr-2" style="width: 18rem">
+    <div class="card mr-2" >
         <div class="card-body">
             <h5 class="card-title">{{title}}</h5>
             <p class="card-text">

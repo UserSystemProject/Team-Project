@@ -90,11 +90,11 @@ footer .names {
   margin: 0;
 }
 
-/* Product PAge */
+/* Product User */
 .products {
   border: 1px solid black;
-  margin: 35px auto;
-  width: 95%;
+  margin: 5px auto;
+  width: 100%;
   height: auto;
   padding: 8px;
   display: flex;
@@ -124,7 +124,61 @@ footer .names {
 .products .card a:hover {
   text-decoration: none;
 }
+/* Product Admin */
+.productAdminDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 25px auto;
+  height: auto;
+}
+.productAdminDiv div {
+  width: 50%;
+  margin: 25px 0;
+  height: 100%;
+}
+div .userList {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.productList {
+  width: 100% !important;
+  height: 100%;
+  text-align: center;
+}
+.productList div {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.productList .productItem {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  border: 1px solid black;
+  margin: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
 /* login */
 
 .loginImportant {
@@ -207,7 +261,7 @@ hr {
   width: 150px;
 }
 
-p {
+.signup p {
   margin-left: 80px;
   padding: 30px 0px 30px 0px;
 }
