@@ -11,10 +11,6 @@ app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
 
-//! Adding models
-const User = require("./models/User");
-const Product = require("./models/Product");
-
 //! Routes
 const indexRouter = require("./routes/indexRouter");
 const signUpRouter = require("./routes/SingUpRouter");
