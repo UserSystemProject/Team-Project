@@ -450,6 +450,7 @@ footer {
   text-align: center;
   color: rgb(10, 10, 10);
   font-weight: bold;
+  background-color: #d33939;
 }
 
 .container-home h1 {
@@ -459,7 +460,7 @@ footer {
 
 .container-home h3 {
   font-size: 2.2rem;
-  color: #abe901;
+  color: #e90678;
   font-weight: 900;
 }
 
@@ -480,7 +481,7 @@ footer {
 }
 
 main {
-  background-color: #d33939;
+  background-color: #ddf5c9;
   width: 100%;
   margin-top: 70px;
 }
