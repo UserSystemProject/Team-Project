@@ -448,12 +448,15 @@ footer {
 .container-home {
   position: relative;
   text-align: center;
-  color: rgb(10, 10, 10);
+  color: rgb(248, 232, 232);
   font-weight: bold;
-  background-color: #d33939;
 }
 
-.container-home h1 {
+div .container-home {
+  width: 100%;
+}
+
+div .container-home h1 {
   font-size: 3rem;
   font-weight: 900;
 }
@@ -480,8 +483,8 @@ footer {
   animation: mymove 5s infinite;
 }
 
-main {
-  background-color: #ddf5c9;
+main .container-home {
+  background-color: #d6f0c9;
   width: 100%;
   margin-top: 70px;
 }
