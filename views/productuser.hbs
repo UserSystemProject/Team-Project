@@ -38,7 +38,7 @@
 </div>
 
 {{!-- Nico Card --}}
-<h2>My Daily Products</h2>
+{{!-- <h2>My Daily Products</h2>
 {{#if product}}
 <div class="d-flex justify-content-start px-5 mx-auto my-4 mr-2">
     {{#each product}}
@@ -56,4 +56,40 @@
         {{/each}}
     </div>
 </div>
-{{/if}}
+{{/if}} --}}
+
+{{#if product}}
+<div class="container mt-5 mb-5">
+ 
+    <div class="d-flex justify-content-center row">
+      <h2>My Daily Products</h2>
+        <div class="col-md-10">
+            <div class="row p-2 bg-white border rounded">
+               {{#each product}}
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                
+                <div class="col-md-6 mt-1">
+                    <h5>{{title}}</h5>
+                    <div class="d-flex flex-row">
+                        <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>310</span>
+                    </div>
+                    
+                    <h6 class="text-success"> Discount: {{discount}}%</h6>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">${{price}}</h4><span class="strike-text">$20.99</span>
+                        }
+                    </div>
+                    <h6 class="text-success">Free shipping</h6>
+                    <h6 class="text-success">Quantity: {{quantity}}</h6>
+
+                    <div class="d-flex flex-column mt-4"><a href="/login/productuser/update/{{_id}}" class=" mt-1 btn btn-primary">Update</a><a href="/login/productuser/delete/{{_id}}" class=" mt-1 btn btn-warning">Delete</a></div>
+                </div>
+                {{/each}}
+            </div>
+           </div>
+        </div>
+    </div>
+</div>
+{{/if}} 
