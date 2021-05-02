@@ -451,6 +451,11 @@ main {
   margin-top: 70px;
 }
 
+.imgHome {
+  width: 100%;
+  z-index: 1;
+}
+
 /* error  form */
 
 .error-form {
