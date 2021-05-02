@@ -4,25 +4,25 @@ const loginController = require("../controllers/loginController");
 
 router.get("/", loginController.loginForm);
 router.post("/", loginController.loginWithUser);
-//! Login Admin
+//! Login Admin "R"
 router.get("/productadmin", loginController.adminLoggedIn);
-//! createUserAdmin
+
+//! createUserAdmin "C"
 router.post("/productadmin", loginController.createNewUser);
-//! Update User Admin
-
-//! DeleteUser Admin
+//! Update User Admin "U"
+router.get("/productadmin/update/:id", loginController.updateUser1);
+//! updated user by admin "U"
+router.post("/productadmin/update/:id", loginController.updatedUser);
+//! DeleteUser Admin "D"
 router.get("/productadmin/delete/:id", loginController.deleteUser);
-//! Login User
+//! Login User "R"
 router.get("/productuser", loginController.loginUser);
-//! Add Product User
+//! Add Product User "C"
 router.post("/productuser", loginController.addProduct);
-
-//! Update Product User
+//! Update Product User "U"
 router.get("/productuser/update/:id", loginController.updateProduct1);
-
-//! UpdateDDDD Product User
+//! UpdateD Product User "U"
 router.post("/productuser/update/:id", loginController.updatedProduct);
-
-//! Delete Product User
+//! Delete Product User "D"
 router.get("/productuser/delete/:id", loginController.deleteProduct);
 module.exports = router;

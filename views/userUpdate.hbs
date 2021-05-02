@@ -1,0 +1,52 @@
+<div class="col-md-4 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      <h3>Update User</h3>
+    </div>
+    <div class="card-body">
+      <form action="/login/productadmin/update/{{update.id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="form-group">
+            <label>Name:</label>
+          <input type="text" name="name" class="form-control" value="{{update.name}}"/>
+        </div>
+        <div class="form-group">
+             <label>E-mail</label>
+          <input name="email" type="email" class="form-control" value="{{update.email}}"></input>
+        </div> 
+        <div class="form-group">
+            <label>Password</label>
+          <input name="password" type="text" class="form-control" value="{{update.password}}"></input>
+        </div>
+ <div class="form-group">
+            <label>Country</label>
+          <input name="country" type="text" class="form-control" value="{{update.country}}"></input>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+            <label>Address</label>
+          <input name="address" type="text" class="form-control" value="{{update.address}}"></input>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+            <label>Salary</label>
+          <input name="salary" type="number" class="form-control" value="{{update.salary}}"></input>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+            <label>Role</label>
+          <select class="form-select" aria-label="Default select example" name="role" required>
+        <option selected>Choose New Role</option>
+        <option value="administrator">administrator</option>
+        <option value="employee">employee</option>
+      </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

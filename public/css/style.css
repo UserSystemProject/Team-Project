@@ -284,7 +284,7 @@ footer {
   font: bold 16px sans-serif;
 
   padding: 55px 50px;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 
 .footer-distributed .footer-left,
@@ -448,7 +448,7 @@ footer {
 main {
   background-color: #f2eeee;
   width: 100%;
-  margin-top: 70px;
+  /* margin-top: 70px; */
 }
 
 /* error  form */

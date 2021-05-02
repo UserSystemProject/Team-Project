@@ -59,9 +59,39 @@ const adminLoggedIn = (req, res) => {
 const createNewUser = (req, res) => {
   const newUser = new User(req.body);
   newUser.save().then(() => {
-    res.redirect("/login/productadmin");
+    res.redirect(
+      url.format({
+        pathname: "/login/productadmin",
+        query: {
+          newUserMessage: `New User Account:${newUser.name} has been successfully Created`,
+          created: true,
+        },
+      })
+    );
   });
 };
+
+//! Update user
+//  selecting update product
+const updateUser1 = async (req, res) => {
+  const update = await User.findById(req.params.id);
+  res.render("userUpdate", { update });
+};
+// updating user
+const updatedUser = async (req, res) => {
+  const { name, email, password, country, address, salary, role } = req.body;
+  await User.findByIdAndUpdate(req.params.id, {
+    name,
+    email,
+    password,
+    country,
+    address,
+    salary,
+    role,
+  });
+  res.redirect("/login/productadmin");
+};
+
 //! DeleteUser Admin
 const deleteUser = (req, res) => {
   const deleteUserId = req.params.id;
@@ -94,12 +124,13 @@ const addProduct = (req, res) => {
     res.redirect("/login/productuser");
   });
 };
-
+//! User update Product
+//  selecting update product
 const updateProduct1 = async (req, res) => {
   const update = await Product.findById(req.params.id);
   res.render("productUpdate", { update });
 };
-
+// updating product
 const updatedProduct = async (req, res) => {
   const { title, price, discount, quantity } = req.body;
   await Product.findByIdAndUpdate(req.params.id, {
@@ -133,6 +164,8 @@ module.exports = {
   loginWithUser,
   adminLoggedIn,
   createNewUser,
+  updateUser1,
+  updatedUser,
   deleteUser,
   loginUser,
   addProduct,

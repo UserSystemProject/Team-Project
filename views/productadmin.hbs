@@ -1,7 +1,12 @@
 <h1>Welcome to Admin Page {{userQuery.name}}</h1>
 {{#if userQuery.deleted}}
- <div class='alert alert-warning text-center  mt-3 mb-3' role='alert'>
+ <div class='alert alert-danger text-center  mt-3 mb-3' role='alert'>
     <h4 class="font-weight-bolder m-0">{{userQuery.deleteMessage}}</h4>
+  </div>
+{{/if}}
+{{#if userQuery.created}}
+ <div class='alert alert-success text-center  mt-3 mb-3' role='alert'>
+    <h4 class="font-weight-bolder m-0">{{userQuery.newUserMessage}}</h4>
   </div>
 {{/if}}
 <h2>Update Employees:</h2>

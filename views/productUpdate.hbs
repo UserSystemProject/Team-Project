@@ -1,5 +1,3 @@
-
-
 <div class="col-md-4 mx-auto">
   <div class="card">
     <div class="card-header">
@@ -8,34 +6,22 @@
     <div class="card-body">
       <form action="/login/productuser/update/{{update.id}}?_method=PUT" method="POST">
         <input type="hidden" name="_method" value="PUT">
-
-
         <div class="form-group">
             <label>Product Title</label>
           <input type="text" name="title" class="form-control" value="{{update.title}}"/>
         </div>
-
-
-
         <div class="form-group">
              <label>Price</label>
           <input name="price" class="form-control" value="{{update.price}}"></input>
         </div>
-        
-           
         <div class="form-group">
             <label>Discount</label>
           <input name="discount" class="form-control" value="{{update.discount}}"></input>
         </div>
-       
-          
         <div class="form-group">
             <label>Quantity</label>
           <input name="quantity" class="form-control" value="{{update.quantity}}"></input>
         </div>
-
-
-
         <div class="form-group">
           <button class="btn btn-primary btn-block" type="submit">
             Save
