@@ -445,15 +445,38 @@ footer {
 
 /* home form */
 
+.container-home {
+  position: relative;
+  text-align: center;
+  color: rgb(240, 242, 238);
+}
+
+.container-home h1 {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.container-home h3 {
+  font-size: 2.2rem;
+  color: #292c2f;
+  font-weight: 900;
+}
+
+.centered {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 main {
-  background-color: #f2eeee;
+  background-color: #d33939;
   width: 100%;
   margin-top: 70px;
 }
 
-.imgHome {
-  width: 100%;
-  z-index: 1;
+.home-form a {
+  text-decoration: none !important;
 }
 
 /* error  form */
