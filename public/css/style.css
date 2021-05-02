@@ -448,7 +448,8 @@ footer {
 .container-home {
   position: relative;
   text-align: center;
-  color: rgb(240, 242, 238);
+  color: rgb(10, 10, 10);
+  font-weight: bold;
 }
 
 .container-home h1 {
@@ -458,15 +459,24 @@ footer {
 
 .container-home h3 {
   font-size: 2.2rem;
-  color: #292c2f;
+  color: #abe901;
   font-weight: 900;
 }
 
 .centered {
   position: absolute;
   top: 25%;
-  left: 50%;
+  left: 49%;
   transform: translate(-50%, -50%);
+}
+
+#div1 {
+  animation-timing-function: linear !important;
+  font-weight: 900;
+  font-size: 4rem;
+  font-weight: bold;
+  position: relative;
+  animation: mymove 5s infinite;
 }
 
 main {
@@ -477,6 +487,15 @@ main {
 
 .home-form a {
   text-decoration: none !important;
+}
+
+@keyframes mymove {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 300px;
+  }
 }
 
 /* error  form */
