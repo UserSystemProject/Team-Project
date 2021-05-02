@@ -30,7 +30,7 @@ const loginWithUser = (req, res) => {
             })
           );
         } else {
-          console.log(user.name);
+          // console.log(user.name);
           res.redirect(
             url.format({
               pathname: "/login/productuser",

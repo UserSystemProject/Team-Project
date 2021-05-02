@@ -12,11 +12,11 @@ app.use(express.urlencoded({ extended: false }));
 const indexRouter = require("./routes/indexRouter");
 const signUpRouter = require("./routes/SingUpRouter");
 const loginRouter = require("./routes/loginRouter");
-//? Home
+//* Home
 app.use("/", indexRouter);
-//? Register
+//* Register
 app.use("/register", signUpRouter);
-//? Login
+//* Login
 app.use("/login", loginRouter);
 //! 404 error
 app.get("*", (req, res) => {
