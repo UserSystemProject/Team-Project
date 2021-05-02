@@ -112,8 +112,8 @@ const deleteUser = (req, res) => {
 const loginUser = (req, res) => {
   const userQuery = req.query;
   Product.find((err, product) => {
-    User.find((err, user) => {
-      res.render("productuser", { product, user, userQuery });
+    User.find((err, users) => {
+      res.render("productuser", { product, users, userQuery });
     });
   });
 };

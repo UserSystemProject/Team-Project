@@ -37,27 +37,6 @@
   </div>
 </div>
 
-{{!-- Nico Card --}}
-{{!-- <h2>My Daily Products</h2>
-{{#if product}}
-<div class="d-flex justify-content-start px-5 mx-auto my-4 mr-2">
-    {{#each product}}
-    <div class="card mr-2" >
-        <div class="card-body">
-            <h5 class="card-title">{{title}}</h5>
-            <p class="card-text">
-                Price : {{price}} $
-            </p>
-            <h5 class="card-title"> Discount:{{discount}}%</h5>
-            <h5 class="card-title"> Quantity: {{quantity}}</h5>
-            <a href="/login/productuser/update/{{_id}}" class="btn btn-primary">Update</a>
-            <a href="/login/productuser/delete/{{_id}}" class="btn btn-warning">Delete</a>
-        </div>
-        {{/each}}
-    </div>
-</div>
-{{/if}} --}}
-
 {{#if product}}
 <div class="container mt-5 mb-5">
  
@@ -93,3 +72,28 @@
     </div>
 </div>
 {{/if}} 
+<div class="userList">
+            <h2 class="text-center">My User List</h2>
+            {{#if users}}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Country</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                    <th>Role</th>
+                </tr>
+                {{#each users}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{country}}</td>
+                    <td>{{address}}</td>
+                    <td>{{salary}}</td>
+                    <td>{{role}}</td>
+                </tr>
+                {{/each}}
+            </table>
+            {{/if}}
+        </div>
