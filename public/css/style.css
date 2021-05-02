@@ -53,7 +53,6 @@ main {
   width: 100%;
   min-height: calc(100vh - 125px);
   height: auto;
-  padding: 25px;
 }
 .loginAdvice {
   text-align: center;
@@ -465,6 +464,7 @@ div .container-home h1 {
   font-size: 2.2rem;
   color: #e90678;
   font-weight: 900;
+  text-shadow: 2px 2px 5px black;
 }
 
 .centered {
@@ -484,9 +484,10 @@ div .container-home h1 {
 }
 
 main .container-home {
-  background-color: #d6f0c9;
+  background-color: #ee8383;
   width: 100%;
-  margin-top: 70px;
+  height: 100%;
+  padding: 25px;
 }
 
 .home-form a {
