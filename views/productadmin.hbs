@@ -1,13 +1,13 @@
 <h1>Welcome to Admin Page {{userQuery.name}}</h1>
 {{#if userQuery.deleted}}
- <div class='alert alert-danger text-center  mt-3 mb-3' role='alert'>
+<div class='alert alert-danger text-center  mt-3 mb-3' role='alert'>
     <h4 class="font-weight-bolder m-0">{{userQuery.deleteMessage}}</h4>
-  </div>
+</div>
 {{/if}}
 {{#if userQuery.created}}
- <div class='alert alert-success text-center  mt-3 mb-3' role='alert'>
+<div class='alert alert-success text-center  mt-3 mb-3' role='alert'>
     <h4 class="font-weight-bolder m-0">{{userQuery.newUserMessage}}</h4>
-  </div>
+</div>
 {{/if}}
 <h2>Update Employees:</h2>
 <form action="/login/productadmin" method="POST" class="form mb-4">
@@ -28,64 +28,66 @@
         <option selected>Choose your Role</option>
         <option value="administrator">administrator</option>
         <option value="employee">employee</option>
-      </select>
+    </select>
     <br>
     <button type="submit" class="btn btn-success">
         Add New User
     </button>
 </form>
 <div class="productAdminDiv">
-<div class="border">
-  <div class="productList">
-   <h2>My User List</h2>
-   <div >
- {{#each products}}
-   <div class="productItem">
-   <h4>Title: {{title}}</h4>
-   <p>Price {{price}} $</p>
-   <p>Discount: {{discount}} %</p>
-   <p>Quantity: {{quantity}}</p>
-   </div> 
-   {{/each}}
-   </div>
-  
-  </div>
-</div>
-<div class="border">
-    <div class="userList">
-        <h2>My User List</h2>
-        {{#if users}}
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>E-mail</th>
-                <th>Country</th>
-                <th>Address</th>
-                <th>Salary</th>
-                <th>Role</th>
-                <th>Delete</th>
-                <th>Update</th>
-            </tr>
-            {{#each users}}
-            <tr>
-                <td>{{name}}</td>
-                <td>{{email}}</td>
-                <td>{{country}}</td>
-                <td>{{address}}</td>
-                <td>{{salary}}</td>
-                <td>{{role}}</td>
-                <td><button class="btn btn-danger"><a href="/login/productadmin/delete/{{_id}}">Delete</a></button></td>
-                <td><button class="btn btn-warning"><a href="/login/productadmin/update/{{_id}}">Update</a></button></td>
-            </tr>
-            {{/each}}
-        </table>
-        {{/if}}
-    </div> 
-</div>
+    <div class="border">
+        <div class="productList">
+            <h2>My User List</h2>
+            <div>
+                {{#each products}}
+                <div class="productItem">
+                    <h4>Title: {{title}}</h4>
+                    <p>Price {{price}} $</p>
+                    <p>Discount: {{discount}} %</p>
+                    <p>Quantity: {{quantity}}</p>
+                </div>
+                {{/each}}
+            </div>
 
-     
+        </div>
+    </div>
+    <div class="border">
+        <div class="userList">
+            <h2>My User List</h2>
+            {{#if users}}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Country</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                    <th>Role</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+                {{#each users}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{country}}</td>
+                    <td>{{address}}</td>
+                    <td>{{salary}}</td>
+                    <td>{{role}}</td>
+                    <td><button class="btn btn-danger"><a href="/login/productadmin/delete/{{_id}}">Delete</a></button>
+                    </td>
+                    <td><button class="btn btn-warning"><a href="/login/productadmin/update/{{_id}}">Update</a></button>
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+            {{/if}}
+        </div>
     </div>
 
-    
+
+</div>
+
+
 
 </div>

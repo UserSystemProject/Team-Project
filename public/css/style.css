@@ -53,10 +53,18 @@ main {
   width: 100%;
   min-height: calc(100vh - 125px);
   height: auto;
-  padding: 25px;
+  /* padding: 25px; */
 }
 .loginAdvice {
   text-align: center;
+}
+.loginAdvice a {
+  border-bottom: 4px solid black;
+  padding-bottom: 3px;
+}
+h3 a {
+  border-bottom: 4px solid black;
+  padding-bottom: 3px;
 }
 .loginAdvice .arrow {
   font-size: 4rem;
@@ -236,7 +244,6 @@ hr {
 /* Adding padding margin sign up class*/
 
 #signup {
-  /* border: 1px solid black; */
   box-shadow: 10px 5px 15px rgb(6, 146, 29);
   border-radius: 10px;
   background-size: cover;
@@ -282,9 +289,7 @@ footer {
   height: 100%;
   text-align: left;
   font: bold 16px sans-serif;
-
   padding: 55px 50px;
-  /* margin-top: 80px; */
 }
 
 .footer-distributed .footer-left,
@@ -480,7 +485,9 @@ div .container-home h1 {
   font-size: 4rem;
   font-weight: bold;
   position: relative;
-  animation: mymove 5s infinite;
+  animation: mymove 4.5s infinite;
+  /* bottom: 50px; */
+  color: black;
 }
 
 main .container-home {
@@ -494,11 +501,14 @@ main .container-home {
 }
 
 @keyframes mymove {
-  from {
-    left: 0px;
+  0% {
+    left: -100px;
   }
-  to {
-    left: 300px;
+  50% {
+    left: 150px;
+  }
+  100% {
+    left: -100px;
   }
 }
 
