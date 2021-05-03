@@ -1,12 +1,28 @@
 const signUpForm = (req, res) => {
-  res.render("signUpForm");
+  const message = req.query;
+  res.render("signUpForm", { message });
 };
 const User = require("../models/User");
 const signUpPost = (req, res) => {
-  const newUser = new User(req.body);
-  console.log("New user created:", newUser);
-  newUser.save(() => {
-    res.redirect("/login");
+  const newUserData = req.body;
+  User.findOne({ email: req.body.email }, (err, user) => {
+    if (user === null) {
+      const newUser = new User(newUserData);
+      console.log("New user created:", newUser);
+      newUser.save(() => {
+        res.redirect("/login");
+      });
+    } else {
+      res.redirect(
+        url.format({
+          pathname: "/register",
+          query: {
+            takenMessage: "This E-mail address is already taken!",
+            isMailTaken: true,
+          },
+        })
+      );
+    }
   });
 };
 
