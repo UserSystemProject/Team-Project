@@ -1,4 +1,10 @@
 <div class="formStyle">
+
+{{#if message.isMailTaken}}
+<div class='alert alert-warning text-center  mt-3 mb-3' role='alert'>
+  <h4 class="font-weight-bolder m-0">{{message.takenMessage}}</h4>
+</div>
+{{/if}}
   <div class="title">
     <h1>Sing in </h1>
     <i class="fas fa-sign-in-alt fa-2x"></i>
@@ -16,19 +22,19 @@
     </div>
     <div class="col-6">
       <label for="inputName" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" />
+      <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required/>
     </div>
     <div class="col-md-6">
       <label for="inputCountry" class="form-label">Country</label>
-      <input type="text" class="form-control" id="inputCountry" name="country" />
+      <input type="text" class="form-control" id="inputCountry" name="country" required/>
     </div>
     <div class="col-md-6">
       <label for="inputAdress" class="form-label">Adress</label>
-      <input type="text" class="form-control" id="inputAdress" name="address" />
+      <input type="text" class="form-control" id="inputAdress" name="address" required />
     </div>
     <div class="col-md-12 ">
       <label for="inputSalary" class="form-label">Salary</label>
-      <input type="number" class="form-control" id="inputSalary" name="salary" />
+      <input type="number" class="form-control" id="inputSalary" name="salary"  required/>
     </div>
     <div class="col-md-12 mt-3">
       <label for="inputRole" class="form-label">Role</label>
