@@ -53,6 +53,7 @@ app.get("/register", (req, res) => {
 app.post("/register", (req, res) => {
   const newUser = new User(req.body);
   console.log(newUser);
+  //saving data in database
   newUser.save(() => {
     res.redirect("/login");
   });
