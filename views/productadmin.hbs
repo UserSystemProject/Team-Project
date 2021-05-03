@@ -1,0 +1,92 @@
+
+<div class="p-3">
+<h1>Welcome to Admin Page {{userQuery.name}}</h1>
+{{#if userQuery.deleted}}
+<div class='alert alert-danger text-center  mt-3 mb-3' role='alert'>
+    <h4 class="font-weight-bolder m-0">{{userQuery.deleteMessage}}</h4>
+</div>
+{{/if}}
+{{#if userQuery.created}}
+<div class='alert alert-success text-center  mt-3 mb-3' role='alert'>
+    <h4 class="font-weight-bolder m-0">{{userQuery.newUserMessage}}</h4>
+</div>
+{{/if}}
+
+
+<div class="col-md-4 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      <h3>Update Employees:</h3>
+    </div>
+    <div class="card-body">
+      <form action="/login/productadmin" method="POST" >
+    <label>Name</label>
+    <input type="text" class="form-control" name="name" required>
+    <label>E-mail</label>
+    <input type="email" class="form-control" name="email" required>
+    <label>Password</label>
+    <input type="password" class="form-control" name="password" required>
+    <label>Country</label>
+    <input type="text" class="form-control" name="country">
+    <label>Address</label>
+    <input type="text" class="form-control" name="address">
+    <label>Salary</label>
+    <input type="number" class="form-control mb-2" name="salary">
+    <label>Role</label>
+    <select class="form-select" aria-label="Default select example" name="role" required>
+        <option selected>Choose your Role</option>
+        <option value="administrator">administrator</option>
+        <option value="employee">employee</option>
+    </select>
+    <br>
+    <button type="submit" class="btn btn-success">
+        Add New User
+    </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+    <div class="my-5">
+        <div class="userList">
+            <h2>My User List</h2>
+            {{#if users}}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Country</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                    <th>Role</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+                {{#each users}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{country}}</td>
+                    <td>{{address}}</td>
+                    <td>{{salary}}</td>
+                    <td>{{role}}</td>
+                    <td class="text-center"><button class="btn btn-danger"><a href="/login/productadmin/delete/{{_id}}">Delete</a></button>
+                    </td>
+                    <td class="text-center"><button class="btn btn-warning"><a href="/login/productadmin/update/{{_id}}">Update</a></button>
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+            {{/if}}
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+
+
+</div>
