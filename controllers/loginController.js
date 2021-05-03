@@ -139,6 +139,7 @@ const updatedProduct = async (req, res) => {
     discount,
     quantity,
   });
+
   res.redirect("/login/productuser");
 };
 
