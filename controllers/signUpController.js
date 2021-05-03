@@ -1,4 +1,3 @@
-const url = require("url");
 const signUpForm = (req, res) => {
   const message = req.query;
   res.render("signUpForm", { message });
