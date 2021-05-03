@@ -81,13 +81,9 @@ h3 a {
   height: 60%;
   margin: 50px auto;
   flex-direction: column;
-<<<<<<< HEAD
   border: 2px solid black;
   margin-left: 25%;
   margin-top: 25px;
-=======
-  border: 2px solid blue;
->>>>>>> 8596929b14f4f374525d37fee0aac71773561c84
 }
 
 footer {
