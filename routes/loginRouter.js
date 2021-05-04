@@ -4,6 +4,7 @@ const loginController = require("../controllers/loginController");
 
 function checkLogin(req, res, next) {
   if (!req.session.loginUser) {
+    // if there is no session, go next
     return next();
   } else {
     // if there is user logged in got to profile
@@ -14,8 +15,13 @@ function checkLogin(req, res, next) {
     }
   }
 }
+
 router.get("/", checkLogin, loginController.loginForm);
 router.post("/", loginController.loginWithUser);
+router.get("/logout", (req, res) => {
+  delete req.session.loginUser;
+  res.redirect("/");
+});
 //! Login Admin "R"
 router.get("/productadmin", loginController.adminLoggedIn);
 

@@ -4,6 +4,7 @@ const url = require("url");
 
 const loginForm = (req, res) => {
   const messages = req.query;
+  // delete req.session.loginUser;
   res.render("login", { messages });
 };
 

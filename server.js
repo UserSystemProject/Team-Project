@@ -14,6 +14,7 @@ app.use(
   session({
     secret: "I am a spy", // signature
     cookie: {
+      // cookie maxAge defines time limit which data keeps saced
       maxAge: 1000 * 60 * 10,
     },
   })
