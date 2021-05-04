@@ -2,7 +2,19 @@ const express = require("express");
 const router = express.Router();
 const loginController = require("../controllers/loginController");
 
-router.get("/", loginController.loginForm);
+function checkLogin(req, res, next) {
+  if (!req.session.loginUser) {
+    return next();
+  } else {
+    // if there is user logged in got to profile
+    if (req.session.loginUser.role == "administrator") {
+      res.redirect("/login/productadmin");
+    } else if (req.session.loginUser.role == "employee") {
+      res.redirect("/login/productuser");
+    }
+  }
+}
+router.get("/", checkLogin, loginController.loginForm);
 router.post("/", loginController.loginWithUser);
 //! Login Admin "R"
 router.get("/productadmin", loginController.adminLoggedIn);

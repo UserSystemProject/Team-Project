@@ -1,15 +1,23 @@
 const express = require("express");
 const app = express();
 const PORT = 5000;
+const session = require("express-session");
 //! Mongoose Connection
 const connectDB = require("./Config/db");
 connectDB();
-
 //! Setting
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
-
+//! Express sessions
+app.use(
+  session({
+    secret: "I am a spy", // signature
+    cookie: {
+      maxAge: 1000 * 60 * 10,
+    },
+  })
+);
 //! Routes
 const indexRouter = require("./routes/indexRouter");
 const signUpRouter = require("./routes/SingUpRouter");

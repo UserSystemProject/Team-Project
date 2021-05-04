@@ -8,38 +8,50 @@ const loginForm = (req, res) => {
 };
 
 const loginWithUser = (req, res) => {
-  User.findOne(
-    { email: req.body.email, password: req.body.password },
-    (err, user) => {
-      if (user == null) {
+  User.findOne({ email: req.body.email }, (err, user) => {
+    if (user == null) {
+      res.redirect(
+        url.format({
+          pathname: "/login",
+          query: {
+            failMessage: "E-mail is not found, please check it!",
+            falseEntered: true,
+          },
+        })
+      );
+    } else if (user.password !== req.body.password) {
+      res.redirect(
+        url.format({
+          pathname: "/login",
+          query: {
+            failMessage: "Password is wrong, please check it!",
+            falseEntered: true,
+          },
+        })
+      );
+    } else {
+      if (user.role == "administrator") {
+        //! store data or user into session
+        req.session.loginUser = user;
         res.redirect(
           url.format({
-            pathname: "/login",
-            query: {
-              failMessage: "E-mail or Password is wrong, please check it!",
-              falseEntered: true,
-            },
+            pathname: "/login/productadmin",
+            query: { userName: user.name },
           })
         );
-      } else if (!Object.keys(user) == 0) {
-        if (user.role == "administrator") {
-          res.redirect(
-            url.format({
-              pathname: "/login/productadmin",
-              query: { userName: user.name },
-            })
-          );
-        } else {
-          res.redirect(
-            url.format({
-              pathname: "/login/productuser",
-              query: { userName: user.name },
-            })
-          );
-        }
+      } else {
+        //! store data or user into session
+        req.session.loginUser = user;
+        // res.render("profile");
+        res.redirect(
+          url.format({
+            pathname: "/login/productuser",
+            query: { userName: user.name },
+          })
+        );
       }
     }
-  );
+  });
 };
 //! Login Admin
 const adminLoggedIn = (req, res) => {
