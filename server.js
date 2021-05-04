@@ -4,10 +4,12 @@ const PORT = 5000;
 //! Mongoose Connection
 const connectDB = require("./Config/db");
 connectDB();
+
 //! Setting
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
+
 //! Routes
 const indexRouter = require("./routes/indexRouter");
 const signUpRouter = require("./routes/SingUpRouter");
