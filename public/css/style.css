@@ -79,11 +79,11 @@ h3 a {
   padding: 0 30px;
   width: 50%;
   height: 60%;
-  margin: 50px auto;
   flex-direction: column;
-  border: 2px solid blue;
+  border-bottom: 5px solid rgb(105, 158, 175);
+  /* box-shadow: 4px 4px 40px blue; */
   margin-left: 25%;
-  margin-top: 25px;
+  /* margin-top: 25px; */
 }
 
 footer {
