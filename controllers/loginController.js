@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const Product = require("../models/Product");
 const url = require("url");
-
+const bcrypt = require("bcrypt");
 const loginForm = (req, res) => {
   const messages = req.query;
   res.render("login", { messages });
@@ -9,53 +9,55 @@ const loginForm = (req, res) => {
 
 const loginWithUser = (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
-    if (user == null) {
-      res.redirect(
-        url.format({
-          pathname: "/login",
-          query: {
-            failMessage: "E-mail is not found, please check it!",
-            falseEntered: true,
-          },
-        })
-      );
-    } else if (user.password !== req.body.password) {
-      res.redirect(
-        url.format({
-          pathname: "/login",
-          query: {
-            failMessage: "Password is wrong, please check it!",
-            falseEntered: true,
-          },
-        })
-      );
-    } else {
-      if (user.role == "administrator") {
-        //! store data or user into session
-        req.session.loginUser = user;
+    bcrypt.compare(req.body.password, user.password, (err, result) => {
+      console.log("Password Matched:", result);
+      if (user == null) {
         res.redirect(
           url.format({
-            pathname: "/login/productadmin",
-            query: { userName: user.name, role: user.role },
+            pathname: "/login",
+            query: {
+              failMessage: "E-mail is not found, please check it!",
+              falseEntered: true,
+            },
           })
         );
-      } else {
-        //! store data or user into session
-        req.session.loginUser = user;
+      } else if (!result) {
         res.redirect(
           url.format({
-            pathname: "/login/productuser",
-            query: { userName: user.name },
+            pathname: "/login",
+            query: {
+              failMessage: "Password is wrong, please check it!",
+              falseEntered: true,
+            },
           })
         );
+      } else if (result) {
+        if (user.role == "administrator") {
+          //! store data or user into session
+          req.session.loginUser = user;
+          res.redirect(
+            url.format({
+              pathname: "/login/productadmin",
+              query: { userName: user.name, role: user.role },
+            })
+          );
+        } else {
+          //! store data or user into session
+          req.session.loginUser = user;
+          res.redirect(
+            url.format({
+              pathname: "/login/productuser",
+              query: { userName: user.name },
+            })
+          );
+        }
       }
-    }
+    });
   });
 };
 //! Login Admin
 const adminLoggedIn = (req, res) => {
   const userQuery = req.query;
-  console.log(userQuery.role);
   Product.find((err, product) => {
     User.find((err, user) => {
       res.render("productadmin", {

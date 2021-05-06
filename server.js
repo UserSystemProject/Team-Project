@@ -3,6 +3,7 @@ const app = express();
 const PORT = 5000;
 const session = require("express-session");
 
+//! Register helper
 const hbs = require("hbs");
 hbs.registerHelper("ifEqual", (arg1, arg2, options) => {
   return arg1 == arg2 ? options.fn(this) : options.inverse(this);
@@ -19,7 +20,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     secret: "I am a spy",
-    // secret: process.env.MY_SECRET, // signature
     cookie: {
       // cookie maxAge defines time limit which data keeps saved
       maxAge: 1000 * 60 * 10,
