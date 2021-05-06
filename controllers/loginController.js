@@ -4,7 +4,6 @@ const url = require("url");
 
 const loginForm = (req, res) => {
   const messages = req.query;
-  // delete req.session.loginUser;
   res.render("login", { messages });
 };
 
@@ -37,13 +36,12 @@ const loginWithUser = (req, res) => {
         res.redirect(
           url.format({
             pathname: "/login/productadmin",
-            query: { userName: user.name },
+            query: { userName: user.name, role: user.role },
           })
         );
       } else {
         //! store data or user into session
         req.session.loginUser = user;
-        // res.render("profile");
         res.redirect(
           url.format({
             pathname: "/login/productuser",
@@ -57,6 +55,7 @@ const loginWithUser = (req, res) => {
 //! Login Admin
 const adminLoggedIn = (req, res) => {
   const userQuery = req.query;
+  console.log(userQuery.role);
   Product.find((err, product) => {
     User.find((err, user) => {
       res.render("productadmin", {

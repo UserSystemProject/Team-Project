@@ -2,6 +2,12 @@ const express = require("express");
 const app = express();
 const PORT = 5000;
 const session = require("express-session");
+
+const hbs = require("hbs");
+hbs.registerHelper("ifEqual", (arg1, arg2, options) => {
+  return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+});
+
 //! Mongoose Connection
 const connectDB = require("./Config/db");
 connectDB();
@@ -12,10 +18,12 @@ app.use(express.urlencoded({ extended: false }));
 //! Express sessions
 app.use(
   session({
-    secret: "I am a spy", // signature
+    secret: "I am a spy",
+    // secret: process.env.MY_SECRET, // signature
     cookie: {
-      // cookie maxAge defines time limit which data keeps saced
+      // cookie maxAge defines time limit which data keeps saved
       maxAge: 1000 * 60 * 10,
+      // expires: new Date()
     },
   })
 );
