@@ -9,6 +9,7 @@ const loginForm = (req, res) => {
 
 const loginWithUser = (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
+    //! Password decoding
     bcrypt.compare(req.body.password, user.password, (err, result) => {
       console.log("Password Matched:", result);
       if (user == null) {
