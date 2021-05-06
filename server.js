@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 5000;
+const PORT = 8000;
 const session = require("express-session");
 //! Mongoose Connection
 const connectDB = require("./Config/db");
@@ -9,10 +9,29 @@ connectDB();
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
+
+// custom helper
+const hbs = require("hbs");
+
+hbs.registerHelper("capital", (username) => {
+  return username.toUpperCase();
+});
+hbs.registerHelper("ifEquals", (arg1, arg2, option) => {
+  return arg1 == arg2 ? option.fn(this) : option.inverse(this);
+});
+hbs.registerHelper("discount", (price) => {
+  return price / 0, 5;
+});
+hbs.registerHelper("lower", (usernameOne) => {
+  return usernameOne.toLowerCase();
+});
+
 //! Express sessions
 app.use(
   session({
-    secret: "I am a spy", // signature
+    saveUninitialized: false,
+    resave: false,
+    secret: process.env.MY_SECRET, // signature
     cookie: {
       maxAge: 1000 * 60 * 10,
     },

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const loginController = require("../controllers/loginController");
 
 function checkLogin(req, res, next) {
@@ -12,6 +13,19 @@ function checkLogin(req, res, next) {
     } else if (req.session.loginUser.role == "employee") {
       res.redirect("/login/productuser");
     }
+  }
+}
+function refreshLogin(req, res, next) {
+  if (req.session.refresh) {
+    req.session.refresh++;
+    res.send(
+      "<h1>The website is refresh for:" + req.session.refresh + " times</h1>"
+    );
+  } else {
+    req.session.refresh = 1;
+    res.send(
+      "<h1>The website is refresh for:" + req.session.refresh + " times</h1>"
+    );
   }
 }
 router.get("/", checkLogin, loginController.loginForm);
