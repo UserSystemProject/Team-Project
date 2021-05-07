@@ -2,6 +2,13 @@ const express = require("express");
 const app = express();
 const PORT = 8000;
 const session = require("express-session");
+
+//! Register helper
+const hbs = require("hbs");
+hbs.registerHelper("ifEqual", (arg1, arg2, options) => {
+  return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+});
+
 //! Mongoose Connection
 const connectDB = require("./Config/db");
 connectDB();
@@ -9,9 +16,6 @@ connectDB();
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
-
-// custom helper
-const hbs = require("hbs");
 
 hbs.registerHelper("capital", (username) => {
   return username.toUpperCase();
@@ -29,11 +33,11 @@ hbs.registerHelper("lower", (usernameOne) => {
 //! Express sessions
 app.use(
   session({
-    saveUninitialized: false,
-    resave: false,
-    secret: process.env.MY_SECRET, // signature
+    secret: "I am a spy",
     cookie: {
+      // cookie maxAge defines time limit which data keeps saved
       maxAge: 1000 * 60 * 10,
+      // expires: new Date()
     },
   })
 );
