@@ -2,6 +2,7 @@ const User = require("../models/User");
 const Product = require("../models/Product");
 const url = require("url");
 const bcrypt = require("bcrypt");
+
 const loginForm = (req, res) => {
   const messages = req.query;
   res.render("login", { messages });
@@ -10,6 +11,7 @@ const loginForm = (req, res) => {
 const loginWithUser = (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     //! Password decoding
+    //compare bring it back
     bcrypt.compare(req.body.password, user.password, (err, result) => {
       console.log("Password Matched:", result);
       if (user == null) {

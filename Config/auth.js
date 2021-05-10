@@ -1,4 +1,5 @@
 //! MiddleWare for checking if there is session
+
 function checkLogin(req, res, next) {
   if (!req.session.loginUser) {
     // if there is no session/logged in user, go next
@@ -22,18 +23,14 @@ function checkLogOut(req, res, next) {
   }
 }
 
-//? they should be combined
-//! check it
-// function userRole(req, res, next) {
-//   const userRole = "administrator";
-//   if (!req.session.loginUser && userRole == "administrator") {
-//     return next();
-//   } else {
-//     res.redirect("/login");
-//   }
-// }
 function rejectProduct(req, res, next) {
-  if (req.session.loginUser) return next();
-  res.redirect("/login");
+  const userRole = "administratora";
+  if (req.session.loginUser) {
+    return next();
+  } else if (userRole == "administrator") {
+    return next();
+  } else {
+    res.redirect("/login");
+  }
 }
 module.exports = { checkLogOut, checkLogin, rejectProduct };

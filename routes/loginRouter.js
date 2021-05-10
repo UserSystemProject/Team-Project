@@ -57,4 +57,5 @@ router.get(
   auth.rejectProduct,
   loginController.deleteProduct
 );
+
 module.exports = router;

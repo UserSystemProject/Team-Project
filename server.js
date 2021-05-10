@@ -31,6 +31,20 @@ app.use(
 const indexRouter = require("./routes/indexRouter");
 const signUpRouter = require("./routes/SingUpRouter");
 const loginRouter = require("./routes/loginRouter");
+//* faker
+const faker = require("faker");
+app.get("/test/fakedata", (req, res) => {
+  const fakeUserData = {
+    name: {
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+    },
+    profile_pic: faker.image.avatar(),
+  };
+  console.log(fakeUserData);
+  res.render("home");
+});
+
 //* Home
 app.use("/", indexRouter);
 //* Register
