@@ -16,6 +16,22 @@ connectDB();
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
+//! "Multer" setting
+const multer = require("multer");
+// const upload = multer({
+//   dest: "public/fileUpload/image",
+// });
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, "public/fileUpload/image");
+  },
+  filename: (req, file, callback) => {
+    callback(null, Date.now() + file.originalname);
+  },
+});
+const upload = multer({
+  storage,
+});
 //! Express sessions
 app.use(
   session({
@@ -31,18 +47,37 @@ app.use(
 const indexRouter = require("./routes/indexRouter");
 const signUpRouter = require("./routes/SingUpRouter");
 const loginRouter = require("./routes/loginRouter");
-//* faker
-const faker = require("faker");
-app.get("/test/fakedata", (req, res) => {
-  const fakeUserData = {
-    name: {
-      firstName: faker.name.firstName(),
-      lastName: faker.name.lastName(),
-    },
-    profile_pic: faker.image.avatar(),
-  };
-  console.log(fakeUserData);
-  res.render("home");
+//! faker
+// const faker = require("faker");
+// app.get("/test/fakedata", (req, res) => {
+//   const fakeUserData = {
+//     img: faker.image.avatar(),
+//     name: {
+//       firstName: faker.name.firstName(),
+//       lastName: faker.name.lastName(),
+//     },
+//     contact: {
+//       email: faker.internet.email(),
+//       phone: faker.phone.phoneNumberFormat(),
+//       company: faker.company.companyName(),
+//       address: {
+//         country: faker.address.country(),
+//         street: faker.address.streetName(),
+//       },
+//     },
+//     color: faker.internet.color(),
+//   };
+//   console.log(fakeUserData);
+//   res.render("profile", { fakeData: fakeUserData });
+// });
+//! file upload form
+app.get("/uploadform", (req, res) => {
+  res.render("fileForm");
+});
+//! file upload process
+app.post("/uploadform", upload.single("profile_pic"), (req, res) => {
+  console.log("upload data", req.file);
+  res.json(req.file);
 });
 
 //* Home

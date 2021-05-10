@@ -1,4 +1,18 @@
 <h1>Profile Page</h1>
 
-<h2>User data:</h2>
+
+<div class="ml-5 border border-dark w-25 d-flex flex-column justify-content-center align-items-center py-2">
+    <h2><b>User data:</b></h2>
+{{#if fakeData}}
+<img src={{fakeData.img}} class="mb-2 w-75 h-75">
+<h4>Name: {{fakeData.name.firstName}} {{fakeData.name.lastName}}</h4>
+<h4>Country: {{fakeData.contact.address.country}}</h4>
+<h4>Street: {{fakeData.contact.address.street}}</h4>
+<h4>E-mail: {{fakeData.contact.email}}</h4>
+<h4>Phone: {{fakeData.contact.phone}}</h4>
+<h4>Company: {{fakeData.contact.company}}</h4>
+<h4>Hex Color: {{fakeData.color}}</h4>
+{{/if}}
+</div>
+
 <a href="/user/logout">Logout</a>
