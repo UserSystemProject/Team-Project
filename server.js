@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 8000;
+const PORT = 5000;
 const session = require("express-session");
 
 //! Register helper
@@ -16,20 +16,6 @@ connectDB();
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
-
-hbs.registerHelper("capital", (username) => {
-  return username.toUpperCase();
-});
-hbs.registerHelper("ifEquals", (arg1, arg2, option) => {
-  return arg1 == arg2 ? option.fn(this) : option.inverse(this);
-});
-hbs.registerHelper("discount", (price) => {
-  return price / 0, 5;
-});
-hbs.registerHelper("lower", (usernameOne) => {
-  return usernameOne.toLowerCase();
-});
-
 //! Express sessions
 app.use(
   session({
