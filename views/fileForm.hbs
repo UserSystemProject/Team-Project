@@ -9,3 +9,9 @@
       <button style="width: 190px;" type="submit" class="btn btn-primary">Upload</button>
     </div>
 </form>
+<div class="ml-5 w-25 h-25">
+{{#if picturePath}}
+<h4>Uploaded picture</h4>
+<img src=/fileUpload/image/{{picturePath}} class="w-100 h-100">
+{{/if}}
+</div>

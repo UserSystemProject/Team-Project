@@ -77,7 +77,7 @@ app.get("/uploadform", (req, res) => {
 //! file upload process
 app.post("/uploadform", upload.single("profile_pic"), (req, res) => {
   console.log("upload data", req.file);
-  res.json(req.file);
+  res.render("fileForm", { picturePath: req.file.filename });
 });
 
 //* Home
