@@ -58,6 +58,14 @@ const loginWithUser = (req, res) => {
     });
   });
 };
+
+const permission = (req, res, next) => {
+  if (req.session.user) {
+    return next;
+  }
+  res.redirect("/login");
+};
+
 //! Login Admin
 const adminLoggedIn = (req, res) => {
   const userQuery = req.query;
@@ -189,4 +197,5 @@ module.exports = {
   updateProduct1,
   updatedProduct,
   deleteProduct,
+  permission,
 };

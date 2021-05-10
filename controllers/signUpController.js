@@ -5,8 +5,8 @@ const signUpForm = (req, res) => {
   const message = req.query;
   res.render("signUpForm", { message });
 };
-
 const User = require("../models/User");
+
 const signUpPost = (req, res) => {
   //* Test Faker.js
   let newUserData = req.body;
