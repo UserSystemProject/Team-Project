@@ -2,6 +2,9 @@
 <div class="p-3">
     <a href="/login/logout"> Delete Session</a>
 <h1>Welcome to Admin Page {{userQuery.name}} </h1>
+{{#if userQuery.userPhoto}}
+<img src=/fileUpload/image/{{userQuery.userPhoto}}>
+{{/if}}
 {{#ifEqual userQuery.role "administrator"}}
      <p class="text-center">This is Admin Page</p>
 {{/ifEqual}}

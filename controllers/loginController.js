@@ -41,7 +41,11 @@ const loginWithUser = (req, res) => {
           res.redirect(
             url.format({
               pathname: "/login/productadmin",
-              query: { userName: user.name, role: user.role },
+              query: {
+                userName: user.name,
+                role: user.role,
+                userPhoto: user.pictureName,
+              },
             })
           );
         } else {
@@ -50,7 +54,7 @@ const loginWithUser = (req, res) => {
           res.redirect(
             url.format({
               pathname: "/login/productuser",
-              query: { userName: user.name },
+              query: { userName: user.name, userPhoto: user.pictureName },
             })
           );
         }

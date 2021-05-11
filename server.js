@@ -16,17 +16,15 @@ connectDB();
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: false }));
-//! "Multer" setting
+
 const multer = require("multer");
-// const upload = multer({
-//   dest: "public/fileUpload/image",
-// });
+
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, "public/fileUpload/image");
   },
   filename: (req, file, callback) => {
-    callback(null, Date.now() + file.originalname);
+    callback(null, `${Date.now()}_${file.originalname}`);
   },
 });
 const upload = multer({
@@ -77,7 +75,7 @@ app.get("/uploadform", (req, res) => {
 //! file upload process
 app.post("/uploadform", upload.single("profile_pic"), (req, res) => {
   console.log("upload data", req.file);
-  res.render("fileForm", { picturePath: req.file.filename });
+  res.render("fileForm", { pictureName: req.file });
 });
 
 //* Home

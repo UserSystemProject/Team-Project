@@ -1,6 +1,5 @@
 const url = require("url");
 const bcrypt = require("bcrypt");
-const faker = require("faker");
 const signUpForm = (req, res) => {
   const message = req.query;
   res.render("signUpForm", { message });
@@ -8,15 +7,11 @@ const signUpForm = (req, res) => {
 const User = require("../models/User");
 
 const signUpPost = (req, res) => {
-  //* Test Faker.js
+  req.body.pictureName = req.file.filename;
   let newUserData = req.body;
   //! Encoding password
-  // how many times hash it => saltRounds
   const saltRounds = 10;
-  // bcrypt.genSalt(saltRounds,(err,salt)=>{
-  // })
   bcrypt.hash(newUserData.password, saltRounds, (err, hashedPassword) => {
-    // old password value = hashed password
     newUserData.password = hashedPassword;
   });
   User.findOne({ email: req.body.email }, (err, user) => {
